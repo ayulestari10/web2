@@ -2,7 +2,7 @@
 
 class Set_data extends CI_Model{
 
-	function valid_siswaate(){
+	function validate(){
 		$query = $this->db->query("SELECT * FROM user WHERE nis='".$this->input->post('nis')."' AND password='".md5($this->input->post('password'))."' LIMIT 1");
 		
 		$baris = $query->num_rows();
@@ -86,8 +86,6 @@ class Set_data extends CI_Model{
 	}
 
 	public function get_data($id_siswa){
-		echo "SELECT * FROM data WHERE id_siswa='.$id_siswa.' LIMIT 1";
-		exit;
 		$query = $this->db->query("SELECT * FROM data WHERE id_siswa=".$id_siswa." LIMIT 1");
 		return $query->result();
 	}

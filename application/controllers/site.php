@@ -36,13 +36,13 @@ class Site extends CI_Controller{
 	}
 
 	function daftar_akun(){
-		$this->load->library('form_valid_siswaation');
+		$this->load->library('form_validation');
 
-		$this->form_valid_siswaation->set_rules('nis', 'Nomor Induk Siswa', 'trim|required|min_length[6]');
-		$this->form_valid_siswaation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-		$this->form_valid_siswaation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
-		$this->form_valid_siswaation->set_rules('role', 'siswa', 'trim|required');
-		if($this->form_valid_siswaation->run()== TRUE){
+		$this->form_validation->set_rules('nis', 'Nomor Induk Siswa', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('role', 'siswa', 'trim|required');
+		if($this->form_validation->run()== TRUE){
 			$this->sign_in();
 		}
 		else{
@@ -64,9 +64,9 @@ class Site extends CI_Controller{
 		$this->load->view('includes/template', $data);
 	}
 
-	function valid_siswaate_credentials(){
+	function validate_credentials(){
 		$this->load->model('Set_data');
-		$query = $this->Set_data->valid_siswaate();
+		$query = $this->Set_data->validate();
 
 		if($query)
 		{
