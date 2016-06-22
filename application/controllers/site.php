@@ -1,30 +1,35 @@
 <?php  
 
 class Site extends CI_Controller{
-	public function index(){
+	function index(){
 		$nis 			= $this->session->userdata('nis');
 		$is_logged_in 	= $this->session->userdata('is_logged_in');
 		$role			= $this->session->userdata('role');
 
 		if(isset($nis, $is_logged_in, $role)){
 			if($role == 'siswa'){
-				$this->load->model('Set_data');
-				$data = array(
-					'title' 	=> 'Input Data | Penerimaan Siswa Baru',
-					'content' 	=> 'input_data'
-				);
-				$this->load->view('includes/template',$data);
+				$this->input();
 			} else{
-				$this->load->model('Set_data');
-				$data = array(
-					'title' 	=> 'Admin Area | Penerimaan Siswa Baru',
-					'content' 	=> 'admin_area'
-				);
-				$this->load->view('includes/template',$data);
+				$this->admin();
 			}
 		} else {
-			$this->load->view('home');	
+			$this->home();
 		}
+	}
+
+	function home(){
+		$this->load->view('home');
+	}
+
+	function admin(){
+		$this->load->model('Set_data');
+		$db = $this->Set_data->get_db();
+		$data = array(
+			'title'		=> 'Admin Area | Penerimaan Siswa Baru',
+			'content'	=> 'admin_area',
+			'db'		=> $db
+		);
+		$this->load->view('includes/template', $data);
 	}
 
 	function daftar(){
@@ -139,6 +144,12 @@ class Site extends CI_Controller{
 		$this->load->model('Set_data');
 		$this->Set_data->edit_data();
 		$this->data();
+	}
+
+	public function hapus(){
+		$id_siswa = $this->uri->segment(3);
+		$this->db->query("DELETE FROM data WHERE id_siswa=".$id_siswa);
+		$this->admin();
 	}
 }
 

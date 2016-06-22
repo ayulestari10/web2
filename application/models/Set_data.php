@@ -26,7 +26,7 @@ class Set_data extends CI_Model{
 		}
 
 		$data = array(
-			'nis' 		=> $this->input->post('nis'),
+			'nis' 			=> $this->input->post('nis'),
 			'password' 		=> md5($this->input->post('password')),
 			'role'			=> $role
 		);
@@ -85,6 +85,20 @@ class Set_data extends CI_Model{
 	
 	}
 
+	public function get_db(){
+		$query = $this->db->query("SELECT * FROM data");
+		return $query;
+	}
+
+	public function get_id(){
+		 $q = $this->db->query("SELECT * FROM data WHERE id_siswa=".$id_siswa." LIMIT 1");
+
+	 	foreach($q->result() as $row){
+	 		$id_siswa = $row->id_siswa;
+	 	}
+		 return $id_siswa;
+	}
+
 	public function get_data($id_siswa){
 		$query = $this->db->query("SELECT * FROM data WHERE id_siswa=".$id_siswa." LIMIT 1");
 		return $query->result();
@@ -109,6 +123,8 @@ class Set_data extends CI_Model{
 		$nilai_bindo	= $this->input->post('nilai_bindo');
 		$nilai_bing		= $this->input->post('nilai_bing');
 	
+		echo "UPDATE data SET nis='".$nis."', nama='".$nama."', tempat_lahir='".$tempat_lahir."', tanggal_lahir='".$tanggal_lahir."', jenis_kelamin='".$jenis_kelamin."', agama='".$agama."', alamat_lengkap='".$alamat_lengkap."', no_telepon='".$no_telepon."',no_hp='".$no_hp."', email='".$email."', nilai_kimia='".$nilai_kimia."', nilai_biologi='".$nilai_biologi."', nilai_matematika='".$nilai_matematika."', nilai_fisika='".$nilai_fisika."', nilai_bindo='".$nilai_bindo."', nilai_bing='".$nilai_bing."' WHERE id_siswa=".$id_siswa;
+		exit;
 		$this->db->query("UPDATE data SET nis='".$nis."', nama='".$nama."', tempat_lahir='".$tempat_lahir."', tanggal_lahir='".$tanggal_lahir."', jenis_kelamin='".$jenis_kelamin."', agama='".$agama."', alamat_lengkap='".$alamat_lengkap."', no_telepon='".$no_telepon."',no_hp='".$no_hp."', email='".$email."', nilai_kimia='".$nilai_kimia."', nilai_biologi='".$nilai_biologi."', nilai_matematika='".$nilai_matematika."', nilai_fisika='".$nilai_fisika."', nilai_bindo='".$nilai_bindo."', nilai_bing='".$nilai_bing."' WHERE id_siswa=".$id_siswa);
 	}
 

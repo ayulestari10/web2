@@ -8,9 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><h3 style="margin-top:6%;">Penerimaan Siswa Baru</h3></a>
+      <a class="navbar-brand" href="<?= base_url('site/home') ?>"><h3>Penerimaan Siswa Baru</h3></a>
     </div>
-
+<?php
+ // $id = $this->Set_data->get_id(); 
+?>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right;">
       <ul class="nav navbar-nav">
@@ -18,12 +20,14 @@
             <a href="<?= base_url('site/input') ?>">Input Data</a>
         </li>
         <li class="item link">
-            <a href="<?= base_url('site/edit') ?>">Edit Data</a>
+            <?php// foreach ($id as $data): ?>
+            <a href="<?= base_url('site/edit')//.$data->id_siswa) ?>">Edit Data</a>
+          <?php// endforeach; ?>
         </li>
         <li class="item link">
             <a href="<?= base_url('site/daftar') ?>">Daftar Akun</a>
         </li>
-        <li class="item p">
+        <li class="item">
             <?php 
             $nis = $this->session->userdata('nis'); 
             if(!isset($nis)){
