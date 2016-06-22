@@ -99,15 +99,14 @@ class Site extends CI_Controller{
 		$nis 			= $this->session->userdata('nis');
 		$is_logged_in 	= $this->session->userdata('is_logged_in');
 		if(isset($nis, $is_logged_in)){
-			$this->index();	
-		}else{
+			$data = array(
+				'title'		=> 'Input Data | Penerimaan Siswa Baru',
+				'content'	=> 'input_data'
+			);
+			$this->load->view('includes/template', $data);
+		} else {
 			echo "Anda belum ada akun, silahkan mendaftar dahulu";
 		}
-		$data = array(
-			'title'		=> 'Input Data | Penerimaan Siswa Baru',
-			'content'	=> 'input_data'
-		);
-		$this->load->view('includes/template', $data);
 	}
 
 	public function input_data(){
