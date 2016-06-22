@@ -22,14 +22,20 @@ class Site extends CI_Controller{
 	}
 
 	function admin(){
-		$this->load->model('Set_data');
-		$db = $this->Set_data->get_db();
-		$data = array(
-			'title'		=> 'Admin Area | Penerimaan Siswa Baru',
-			'content'	=> 'admin_area',
-			'db'		=> $db
-		);
-		$this->load->view('includes/template', $data);
+		$nis 			= $this->session->userdata('nis');
+		$is_logged_in 	= $this->session->userdata('is_logged_in');
+		if(isset($nis, $is_logged_in)){
+			$this->load->model('Set_data');
+			$db = $this->Set_data->get_db();
+			$data = array(
+				'title'		=> 'Admin Area | Penerimaan Siswa Baru',
+				'content'	=> 'admin_area',
+				'db'		=> $db
+			);
+			$this->load->view('includes/template', $data);
+		}else {
+			$this->sign_in();
+		}
 	}
 
 	function daftar(){
@@ -90,6 +96,13 @@ class Site extends CI_Controller{
 	}
 
 	function input(){
+		$nis 			= $this->session->userdata('nis');
+		$is_logged_in 	= $this->session->userdata('is_logged_in');
+		if(isset($nis, $is_logged_in)){
+			$this->index();	
+		}else{
+			echo "Anda belum ada akun, silahkan mendaftar dahulu";
+		}
 		$data = array(
 			'title'		=> 'Input Data | Penerimaan Siswa Baru',
 			'content'	=> 'input_data'
