@@ -105,7 +105,7 @@ class Site extends CI_Controller{
 			);
 			$this->load->view('includes/template', $data);
 		} else {
-			echo "Anda belum ada akun, silahkan mendaftar dahulu";
+			$this->sign_in();
 		}
 	}
 
