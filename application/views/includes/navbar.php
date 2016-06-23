@@ -10,8 +10,10 @@
       </button>
       <a class="navbar-brand" href="<?= base_url('site/home') ?>"><h3>Penerimaan Siswa Baru</h3></a>
     </div>
-<?php
- // $id = $this->Set_data->get_id(); 
+<?php/*
+  $this->load->model('Set_data');
+  $id = $this->Set_data->id(); 
+  */
 ?>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right;">
@@ -22,7 +24,7 @@
         <li class="item link">
             <?php// foreach ($id as $data): ?>
             <a href="<?= base_url('site/edit')//.$data->id_siswa) ?>">Edit Data</a>
-          <?php// endforeach; ?>
+          <?php //endforeach; ?>
         </li>
         <li class="item link">
             <a href="<?= base_url('site/daftar') ?>">Daftar Akun</a>

@@ -155,7 +155,7 @@ class Site extends CI_Controller{
 	public function edit_data(){
 		$this->load->model('Set_data');
 		$this->Set_data->edit_data();
-		$this->data();
+		$this->edit();
 	}
 
 	public function hapus(){
