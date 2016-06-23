@@ -1,14 +1,14 @@
 <style type="text/css">
 	h2{text-align: center; margin-bottom: 15%;}
 </style>
-<?php echo form_open_multipart('site/daftar_akun'); ?>
+<?php echo form_open_multipart('site/daftar_admin'); ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5 col-md-offset-3">
 				<h2>Daftar Akun</h2>
 				<div class="form-group">
-	                <label for="nis">Nomor Induk Siswa/NIS</label>
-	                <input type="text" name="nis" class="form-control" />
+	                <label for="username">Username</label>
+	                <input type="text" name="username" class="form-control" />
 	            </div>
 	            <div class="form-group">
 	                <label for="password">Password</label>

@@ -10,11 +10,7 @@
       </button>
       <a class="navbar-brand" href="<?= base_url('site/home') ?>"><h3>Penerimaan Siswa Baru</h3></a>
     </div>
-<?php/*
-  $this->load->model('Set_data');
-  $id = $this->Set_data->id(); 
-  */
-?>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right;">
       <ul class="nav navbar-nav">
@@ -22,19 +18,22 @@
             <a href="<?= base_url('site/input') ?>">Input Data</a>
         </li>
         <li class="item link">
-            <?php// foreach ($id as $data): ?>
-            <a href="<?= base_url('site/edit')//.$data->id_siswa) ?>">Edit Data</a>
-          <?php //endforeach; ?>
+            <a href="<?= base_url('site/edit/'.$this->session->userdata('id_siswa')) ?>">Edit Data</a>
         </li>
         <li class="item link">
             <a href="<?= base_url('site/daftar') ?>">Daftar Akun</a>
         </li>
         <li class="item">
             <?php 
-            $nis = $this->session->userdata('nis'); 
+            $nis      = $this->session->userdata('nis'); 
+            $username = $this->session->userdata('username'); 
             if(!isset($nis)){
-              echo '"<a href="'.base_url('site/sign_in').'">Masuk</a>"';
-            } else {
+              echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
+            } 
+            else if(isset($username)){
+              echo '"<a href="'.base_url('site/logout').'">Keluar</a>"';
+            }
+            else {
               echo '"<a href="'.base_url('site/logout').'">Keluar</a>"';
             }
             ?>

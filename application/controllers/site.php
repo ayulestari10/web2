@@ -5,37 +5,21 @@ class Site extends CI_Controller{
 		$nis 			= $this->session->userdata('nis');
 		$is_logged_in 	= $this->session->userdata('is_logged_in');
 		$role			= $this->session->userdata('role');
+		$username		= $this->session->userdata('username');
 
 		if(isset($nis, $is_logged_in, $role)){
-			if($role == 'siswa'){
-				$this->input();
-			} else{
-				$this->admin();
-			}
-		} else {
+			$this->input();
+		} 
+		else if(isset($username, $is_logged_in, $role)){
+			$this->admin();
+		}
+		else {
 			$this->home();
 		}
 	}
 
 	function home(){
 		$this->load->view('home');
-	}
-
-	function admin(){
-		$nis 			= $this->session->userdata('nis');
-		$is_logged_in 	= $this->session->userdata('is_logged_in');
-		if(isset($nis, $is_logged_in)){
-			$this->load->model('Set_data');
-			$db = $this->Set_data->get_db();
-			$data = array(
-				'title'		=> 'Admin Area | Penerimaan Siswa Baru',
-				'content'	=> 'admin_area',
-				'db'		=> $db
-			);
-			$this->load->view('includes/template', $data);
-		}else {
-			$this->sign_in();
-		}
 	}
 
 	function daftar(){
@@ -54,25 +38,17 @@ class Site extends CI_Controller{
 		$this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
 		$this->form_validation->set_rules('role', 'siswa', 'trim|required');
 		if($this->form_validation->run()== TRUE){
-			$this->sign_in();
+			$this->login();
 		}
 		else{
 			$this->load->model('Set_data');
 			if($query = $this->Set_data->daftar_akun()){
-				$this->sign_in();
+				$this->login();
 			}
 			else{
 				echo 'The Account is not match';
 			}
 		}
-	}
-
-	function sign_in(){
-		$data = array(
-			'title'		=> 'Masuk | Penerimaan Siswa Baru',
-			'content'	=> 'sign_in'
-		);
-		$this->load->view('includes/template', $data);
 	}
 
 	function validate_credentials(){
@@ -84,7 +60,8 @@ class Site extends CI_Controller{
 			$data= array(
 				'nis' 			=> $this->input->post('nis'),
 				'is_logged_in'  => true,
-				'role'			=> $this->session->userdata('role')
+				'role'			=> $this->session->userdata('role'),
+				'id_siswa'		=> $this->session->userdata('id_siswa')
 			);
 
 			$this->session->set_userdata($data);
@@ -92,6 +69,89 @@ class Site extends CI_Controller{
 		}
 		else{
 			$this->index();
+		}
+	}
+
+	function login(){
+		$data = array(
+			'title'		=> 'Masuk | Penerimaan Siswa Baru',
+			'content'	=> 'login'
+		);
+		$this->load->view('includes/template', $data);
+	}
+
+	function daftar2(){
+		$data = array(
+			'title'		=> 'Daftar Admin | Penerimaan Siswa Baru',
+			'content'	=> 'daftar2'
+		);
+		$this->load->view('includes/template', $data);
+	}
+
+	function daftar_admin(){
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('role', 'admin', 'trim|required');
+		if($this->form_validation->run()== TRUE){
+			$this->login2();
+		}
+		else{
+			$this->load->model('Set_data');
+			if($query = $this->Set_data->daftar_admin()){
+				$this->login2();
+			}
+			else{
+				echo 'The Account is not match';
+			}
+		}
+	}
+
+	function login_admin(){
+		$this->load->model('Set_data');
+		$query = $this->Set_data->validate_admin();
+
+		if($query)
+		{
+			$data= array(
+				'username'		=> $this->input->post('username'),
+				'is_logged_in'  => true,
+				'role'			=> $this->session->userdata('role')
+			);
+
+			$this->session->set_userdata($data);
+			redirect('site/admin');
+		}
+		else{
+			$this->login2();
+		}
+	}
+
+	function login2(){
+		$data = array(
+			'title'		=> 'Login Admin | Penerimaan Siswa Baru',
+			'content'	=> 'login_admin'
+		);
+		$this->load->view('includes/template', $data);
+	}
+
+	function admin(){
+		$username 		= $this->session->userdata('username');
+		$role 			= $this->session->userdata('role');
+		$is_logged_in 	= $this->session->userdata('is_logged_in');
+		if(isset($username, $is_logged_in, $role)){
+			$this->load->model('Set_data');
+			$db = $this->Set_data->get_db();
+			$data = array(
+				'title'		=> 'Admin Area | Penerimaan Siswa Baru',
+				'content'	=> 'admin_area',
+				'db'		=> $db
+			);
+			$this->load->view('includes/template', $data);
+		}else {
+			$this->login_admin();
 		}
 	}
 
@@ -105,7 +165,7 @@ class Site extends CI_Controller{
 			);
 			$this->load->view('includes/template', $data);
 		} else {
-			$this->sign_in();
+			$this->login();
 		}
 	}
 
@@ -136,6 +196,7 @@ class Site extends CI_Controller{
 
 	public function logout(){
 		$this->session->unset_userdata('nis');
+		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('is_logged_in');
 		$this->index();
 	}

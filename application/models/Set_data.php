@@ -9,9 +9,28 @@ class Set_data extends CI_Model{
 
 		if($baris ==1){
 			foreach ($query->result() as $row) {
-				$role = $row->role;
+				$role 		= $row->role;
+				$id_siswa	= $row->id_siswa;
 			}
 			$this->session->set_userdata('role', $role);
+			$this->session->set_userdata('id_siswa', $id_siswa);
+			return true;
+		}
+		
+	}
+
+	function validate_admin(){
+		$query = $this->db->query("SELECT * FROM user WHERE username='".$this->input->post('username')."' AND password='".md5($this->input->post('password'))."' LIMIT 1");
+		
+		$baris = $query->num_rows();
+
+		if($baris ==1){
+			foreach ($query->result() as $row) {
+				$role 		= $row->role;
+				$username	= $row->username;
+			}
+			$this->session->set_userdata('role', $role);
+			$this->session->set_userdata('username', $username);
 			return true;
 		}
 		
@@ -27,6 +46,24 @@ class Set_data extends CI_Model{
 
 		$data = array(
 			'nis' 			=> $this->input->post('nis'),
+			'password' 		=> md5($this->input->post('password')),
+			'role'			=> $role
+		);
+
+		$insert= $this->db->insert('user', $data);
+		return $insert;
+	}
+
+	function daftar_admin(){
+		$is_admin = $this->input->post('username');
+		if ($is_admin) {
+			$role = "admin";
+		} else {
+			$role = "siswa";
+		}
+
+		$data = array(
+			'username'		=> $this->input->post('username'),
 			'password' 		=> md5($this->input->post('password')),
 			'role'			=> $role
 		);
@@ -100,7 +137,8 @@ class Set_data extends CI_Model{
 	}
 
 	public function id(){
-		$id = $this->uri->segment(3);
+		$id_siswa = $this->uri->segment(3);
+		$id = $this->session->set_userdata("id_siswa", $id_siswa);
 		return $id;
 	}
 
