@@ -7,7 +7,7 @@
     <?php echo form_open('site/input_data'); ?>
     <div class="container">
         <div class="col-md-5">
-            <h2>Data Diri</h2>
+            <h2>Data Pribadi</h2>
             <div class="form-group">
                 <label for="nis">Nomor Induk Siswa (NIS)*</label>
                 <input type="text" name="nis" class="form-control" />

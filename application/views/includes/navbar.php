@@ -17,22 +17,30 @@
         <li class="item link">
             <a href="<?= base_url('site/input') ?>">Input Data</a>
         </li>
+
+        <?php if($this->session->userdata('role') == 'siswa'): ?>
+        <li class="item link">
+            <a href="<?= base_url('site/data') ?>">Data</a>
+        </li>
+        <?php endif; ?>
+
+        <?php if($this->session->userdata('role') == 'siswa'): ?>
         <li class="item link">
             <a href="<?= base_url('site/edit/'.$this->session->userdata('id_siswa')) ?>">Edit Data</a>
         </li>
+        <?php endif; ?>
+
+        <?php if(!isset($nis)): ?>
         <li class="item link">
             <a href="<?= base_url('site/daftar') ?>">Daftar Akun</a>
         </li>
+      <?php endif; ?>
+
         <li class="item">
             <?php 
-            $nis      = $this->session->userdata('nis'); 
-            $username = $this->session->userdata('username'); 
-            if(!isset($nis)){
+            if(!isset($nis) || !isset($username)) {
               echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
             } 
-            else if(isset($username)){
-              echo '"<a href="'.base_url('site/logout').'">Keluar</a>"';
-            }
             else {
               echo '"<a href="'.base_url('site/logout').'">Keluar</a>"';
             }

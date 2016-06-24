@@ -147,7 +147,8 @@ class Site extends CI_Controller{
 			$data = array(
 				'title'		=> 'Admin Area | Penerimaan Siswa Baru',
 				'content'	=> 'admin_area',
-				'db'		=> $db
+				'db'		=> $db,
+				'role'		=> $this->session->userdata('role')
 			);
 			$this->load->view('includes/template', $data);
 		}else {
@@ -161,7 +162,8 @@ class Site extends CI_Controller{
 		if(isset($nis, $is_logged_in)){
 			$data = array(
 				'title'		=> 'Input Data | Penerimaan Siswa Baru',
-				'content'	=> 'input_data'
+				'content'	=> 'input_data',
+				'role'		=> $this->session->userdata('role')
 			);
 			$this->load->view('includes/template', $data);
 		} else {
@@ -223,6 +225,18 @@ class Site extends CI_Controller{
 		$id_siswa = $this->uri->segment(3);
 		$this->db->query("DELETE FROM data WHERE id_siswa=".$id_siswa);
 		$this->admin();
+	}
+
+	public function data(){
+		$id_siswa 	= $this->uri->segment(3);
+		$this->load->model('Set_data');
+		$data_siswa = $this->Set_data->get_data($id_siswa);
+		$data = array(
+			'title'			=> 'Data | Penerimaan Siswa Baru',
+			'content'		=> 'data',
+			'data_siswa'	=> $data_siswa
+		);
+		$this->load->view('includes/template', $data);
 	}
 }
 
