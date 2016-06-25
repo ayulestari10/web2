@@ -65,7 +65,7 @@ class Site extends CI_Controller{
 			);
 
 			$this->session->set_userdata($data);
-			redirect('site/input_data');
+			redirect('site/input');
 		}
 		else{
 			$this->index();
@@ -148,12 +148,25 @@ class Site extends CI_Controller{
 				'title'		=> 'Admin Area | Penerimaan Siswa Baru',
 				'content'	=> 'admin_area',
 				'db'		=> $db,
-				'role'		=> $this->session->userdata('role')
+				'role'		=> $this->session->userdata('role'),
+				'username'	=> $this->session->userdata('username')
 			);
 			$this->load->view('includes/template', $data);
 		}else {
 			$this->login_admin();
 		}
+	}
+
+	public function page(){
+		$id_siswa 	= $this->uri->segment(3);
+		$this->load->model('Set_data');
+		$data_siswa = $this->Set_data->get_data($id_siswa);
+		$data = array(
+			'title'			=> 'Selamat Datang | Penerimaan Siswa Baru',
+			'content'		=> 'page',
+			'data_siswa'	=> $data_siswa,
+		);
+		$this->load->view('includes/template', $data);
 	}
 
 	function input(){
@@ -163,7 +176,8 @@ class Site extends CI_Controller{
 			$data = array(
 				'title'		=> 'Input Data | Penerimaan Siswa Baru',
 				'content'	=> 'input_data',
-				'role'		=> $this->session->userdata('role')
+				'role'		=> $this->session->userdata('role'),
+				'nis'		=> $this->session->userdata('nis')
 			);
 			$this->load->view('includes/template', $data);
 		} else {

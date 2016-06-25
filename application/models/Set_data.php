@@ -19,23 +19,6 @@ class Set_data extends CI_Model{
 		
 	}
 
-	function validate_admin(){
-		$query = $this->db->query("SELECT * FROM user WHERE username='".$this->input->post('username')."' AND password='".md5($this->input->post('password'))."' LIMIT 1");
-		
-		$baris = $query->num_rows();
-
-		if($baris ==1){
-			foreach ($query->result() as $row) {
-				$role 		= $row->role;
-				$username	= $row->username;
-			}
-			$this->session->set_userdata('role', $role);
-			$this->session->set_userdata('username', $username);
-			return true;
-		}
-		
-	}
-
 	function daftar_akun(){
 		$is_siswa = $this->input->post('nis');
 		if ($is_siswa) {
@@ -70,6 +53,23 @@ class Set_data extends CI_Model{
 
 		$insert= $this->db->insert('user', $data);
 		return $insert;
+	}
+
+	function validate_admin(){
+		$query = $this->db->query("SELECT * FROM user WHERE username='".$this->input->post('username')."' AND password='".md5($this->input->post('password'))."' LIMIT 1");
+		
+		$baris = $query->num_rows();
+
+		if($baris ==1){
+			foreach ($query->result() as $row) {
+				$role 		= $row->role;
+				$username	= $row->username;
+			}
+			$this->session->set_userdata('role', $role);
+			$this->session->set_userdata('username', $username);
+			return true;
+		}
+		
 	}
 
 	function add_data($data){

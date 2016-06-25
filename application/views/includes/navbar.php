@@ -30,19 +30,22 @@
         </li>
         <?php endif; ?>
 
-        <?php if(!isset($nis)): ?>
+        <?php if(isset($username)): ?>
         <li class="item link">
             <a href="<?= base_url('site/daftar') ?>">Daftar Akun</a>
         </li>
-      <?php endif; ?>
+        <?php endif; ?>
 
         <li class="item">
             <?php 
-            if(!isset($nis) || !isset($username)) {
-              echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
-            } 
+            if(!isset($nis)) {
+                echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
+            }
+            else if(!isset($username)){
+                echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
+            }
             else {
-              echo '"<a href="'.base_url('site/logout').'">Keluar</a>"';
+                echo '"<a href="'.base_url('site/logout').'">Keluar</a>"';
             }
             ?>
         </li>
