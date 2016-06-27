@@ -38,10 +38,10 @@
 
         <li class="item">
             <?php 
-            if(!isset($nis)) {
-                echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
-            }
-            else if(!isset($username)){
+            $nis        = $this->session->userdata('nis');
+            $username   = $this->session->userdata('username');
+
+            if(!isset($nis) && !isset($username)) {
                 echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
             }
             else {

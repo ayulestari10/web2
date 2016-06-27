@@ -8,10 +8,12 @@
     <div class="container">
         <div class="col-md-5">
             <h2>Data Pribadi</h2>
+            <?php// foreach ($data_siswa as $data): ?>
             <div class="form-group">
                 <label for="nis">Nomor Induk Siswa (NIS)*</label>
-                <input type="text" name="nis" class="form-control" />
+                <input type="text" name="nis" class="form-control"  />
             </div>
+            <?php// endforeach; ?>
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" name="nama" class="form-control" />

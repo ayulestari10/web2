@@ -48,12 +48,8 @@
                     <li class="item">
                         <?php 
                         $nis      = $this->session->userdata('nis'); 
-                        $username = $this->session->userdata('username'); 
                         if(!isset($nis)){
                           echo '"<a href="'.base_url('site/login').'">Masuk</a>"';
-                        } 
-                        else if(!isset($username)){
-                          echo '"<a href="'.base_url('site/login2').'">Masuk</a>"';
                         }
                         else {
                           echo '"<a href="'.base_url('site/logout').'">Keluar</a>"';

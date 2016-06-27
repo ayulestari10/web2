@@ -3,8 +3,21 @@
 	h2{margin-bottom: 4%;}
 </style>
 <div class="container" style="margin-top: 4%;">
-	<?php foreach ($data_siswa as $data): ?>
-		<?= form_open('site/edit_data') ?>
+	<?php  
+		$msg = $this->session->flashdata('msg');
+		if(isset($msg)){
+			echo $msg;
+		}
+	?>
+	
+	<?php 
+	$nis = $this->session->flashdata('nis');
+	if (isset($nis)) {
+	     echo form_open('admin/edit/'.$nis);
+	} else {
+	     echo form_open('siswa/edit');
+	}
+	?>
 		<div class="row">
 			<div class="col-md-6">
 				<h2>Data Pribadi</h2>
@@ -82,10 +95,10 @@
 		
 		<div class="row" style="margin-bottom: 2%; margin-top: 2%;">
 	        <div class="col-md-1">
-	            <input type="submit" value="Edit" class="btn btn-success" />
+	            <input type="submit" value="Edit" class="btn btn-success" name="edit" />
 	        </div>
 	    </div>
 
 	<?= form_close() ?>
-	<?php endforeach; ?>
+	<?php// endforeach; ?>
 </div>
