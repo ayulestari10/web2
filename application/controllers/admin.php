@@ -34,7 +34,7 @@ class Admin extends CI_Controller{
 	function edit_admin(){
 		$username = $this->uri->segment(3);
 		if(!isset($username)){
-			redirect('daftar_admin');
+			redirect('admin/daftar_admin');
 			exit;
 		} else {
 			$data = array(
@@ -57,11 +57,11 @@ class Admin extends CI_Controller{
 	function delete_admin(){
 		$username = $this->uri->segment(3);
 		if(isset($username)){
-			$this->siswa_model->delete($username);
+			$this->admin_model->delete($username);
 		} else {
-			redirect('daftar_admin');
+			redirect('admin/daftar_admin');
 		}
-		redirect('daftar_admin');
+		redirect('admin/daftar_admin');
 	}
 
 	function edit(){

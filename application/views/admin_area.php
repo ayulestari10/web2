@@ -28,5 +28,8 @@
 				</tbody>
 			</table>
 		</div>
+		<div class="col-md-1" style="margin-top: 4%;">
+			<a href="<?= base_url('admin/daftar_admin/') ?>"><button class="btn btn-succcess btn-lg">Admin</button></a>
+		</div>
 	</div>
 </div>
