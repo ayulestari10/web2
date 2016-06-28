@@ -12,7 +12,11 @@ class Siswa extends CI_Controller{
 	}
 
 	function index(){
-		
+		$data = array(
+			'title'		=> 'Penerimaan Siswa Baru',
+			'content'	=> 'homepage'
+		);
+		$this->load->view('includes/template', $data);
 
 	}
 

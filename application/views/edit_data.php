@@ -100,5 +100,4 @@
 	    </div>
 
 	<?= form_close() ?>
-	<?php// endforeach; ?>
 </div>

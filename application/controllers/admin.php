@@ -22,6 +22,48 @@ class Admin extends CI_Controller{
 		$this->load->view('includes/template', $data);
 	}
 
+	function daftar_admin(){
+		$data = array(
+			'data' 		=> $this->admin_model->get_all(),
+			'title'		=> 'Edit Admin | Penerimaan Siswa Baru',
+			'content'	=> 'admin'
+		);
+		$this->load->view('includes/template', $data);
+	}
+
+	function edit_admin(){
+		$username = $this->uri->segment(3);
+		if(!isset($username)){
+			redirect('daftar_admin');
+			exit;
+		} else {
+			$data = array(
+				'username'	=> $this->input->post('username'),
+				'password'	=> md5($this->input->post('password'))
+			);
+			$this->admin_model->update($username, $data);
+			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
+		}
+
+		$data = array(
+			'data' 		=> $this->admin_model->get_data_byKey($username),
+			'title'		=> 'Edit Data | Penerimaan Siswa Baru',
+			'content'	=> 'edit_admin'
+		);
+		$this->session->set_flashdata('username', $username);
+		$this->load->view('includes/template', $data);
+	}
+
+	function delete_admin(){
+		$username = $this->uri->segment(3);
+		if(isset($username)){
+			$this->siswa_model->delete($username);
+		} else {
+			redirect('daftar_admin');
+		}
+		redirect('daftar_admin');
+	}
+
 	function edit(){
 		$nis = $this->uri->segment(3);
 		if (!isset($nis)) {
@@ -57,6 +99,16 @@ class Admin extends CI_Controller{
 		);
 		$this->session->set_flashdata('nis', $nis);
 		$this->load->view('includes/template', $data);
+	}
+
+	function delete(){
+		$nis = $this->uri->segment(3);
+		if(isset($nis)){
+			$this->siswa_model->delete($nis);
+		} else {
+			redirect('admin');
+		}
+		redirect('admin');
 	}
 
 }
