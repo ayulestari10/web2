@@ -36,7 +36,8 @@ class Admin extends CI_Controller{
 		if(!isset($username)){
 			redirect('admin/daftar_admin');
 			exit;
-		} else {
+		}
+		if($this->input->post('edit_admin')){
 			$data = array(
 				'username'	=> $this->input->post('username'),
 				'password'	=> md5($this->input->post('password'))
@@ -44,6 +45,7 @@ class Admin extends CI_Controller{
 			$this->admin_model->update($username, $data);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
 		}
+		
 
 		$data = array(
 			'data' 		=> $this->admin_model->get_data_byKey($username),

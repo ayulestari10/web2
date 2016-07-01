@@ -23,6 +23,25 @@ class Admin_model extends CI_Model{
 		return $query->row();
 	}
 
+	// Method ini digunakan untuk mengambil username dari seorang admin
+	function get_username($username){
+		$this->db->where($this->key, $username); // SELECT * FROM admin WHERE username = $username
+		$query = $this->db->get($this->table);
+		foreach($query->result() as $row){
+			$username = $row->username;
+		}
+		return $username;
+	}
+
+	function get_id_admin(){
+		$this->db->where($this->key, $username); // SELECT * FROM admin WHERE username = $username
+		$query = $this->db->get($this->table);
+		foreach($query->result() as $row){
+			$id_admin = $row->id_admin;
+		}
+		return $id_admin;
+	}
+
 	// Method ini digunakan untuk menginput data ke table admin
 	function insert($data){
 		return $this->db->insert($this->table, $data); // INSERT INTO admin(nama,..) VALUES ('ayu',..)

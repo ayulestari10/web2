@@ -28,7 +28,7 @@
 				</div>
 				<div class="form-group">
 					<label for="password" >Password</label>
-					<input class="form-control" type="text" name="password" value="<?= $data->password ?>" />
+					<input class="form-control" type="text" name="password" />
 				</div>
 		</div>
 		

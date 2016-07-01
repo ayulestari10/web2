@@ -1,6 +1,7 @@
 <style type="text/css">
 	.form-group{margin-bottom: 4%;}
 	h2{margin-bottom: 4%;}
+	#foto img{width: 144px; height: 216px; border: 1px solid grey; margin-bottom: 2%;}
 </style>
 <div class="container" style="margin-top: 4%;">
 	<?php  
@@ -15,13 +16,18 @@
 	if (isset($nis)) {
 	     echo form_open('admin/edit/'.$nis);
 	} else {
-	     echo form_open('siswa/edit');
+	     echo form_open_multipart('siswa/edit');
 	}
 	?>
 		<div class="row">
 			<div class="col-md-6">
 				<h2>Data Pribadi</h2>
 				<input type="hidden" name="id_siswa" value="<?= $data->id_siswa ?>" />
+				<div class="form-group" id="foto">
+					<img src="<?= base_url('foto/'. $data->id_siswa.'.png') ?>"><br>
+	                <label for="foto">Upload Foto Close Up</label>
+	                <?php echo form_upload('userfile'); ?>
+	            </div>
 				<div class="form-group">
 					<label for="nis" >Nomor Induk Siswa / NIS</label>
 					<input class="form-control" type="text" name="nis" value="<?= $data->nis ?>" />
@@ -29,6 +35,10 @@
 				<div class="form-group">
 					<label for="nama" >Nama</label>
 					<input class="form-control" type="text" name="nama" value="<?= $data->nama ?>" />
+				</div>
+				<div class="form-group">
+					<label for="asal_sekolah" >Asal Sekolah</label>
+					<input class="form-control" type="text" name="asal_sekolah" value="<?= $data->asal_sekolah ?>" />
 				</div>
 				<div class="form-group">
 					<label for="tempat_lahir" >Tempat Lahir</label>
@@ -64,8 +74,8 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 col-md-offset-2">
-				<h2>Data Nilai</h2>
+			<div class="col-md-5 col-md-offset-1">
+				<h2 style="text-align: center;">Nilai Ujian Nasional</h2>
 				<div class="form-group">
 					<label for="nilai_kimia" >Kimia</label>
 					<input class="form-control" type="text" name="nilai_kimia" value="<?= $data->nilai_kimia ?>" />
@@ -96,6 +106,9 @@
 		<div class="row" style="margin-bottom: 2%; margin-top: 2%;">
 	        <div class="col-md-1">
 	            <input type="submit" value="Edit" class="btn btn-success" name="edit" />
+	        </div>
+	        <div class="col-md-1">
+	            <a href="<?= base_url('siswa/kartu_peserta') ?>"><input type="submit" value="Download Kartu Peserta" class="btn btn-info"/></a>
 	        </div>
 	    </div>
 

@@ -52,5 +52,10 @@ class Login extends CI_Controller{
 		);
 		$this->load->view('includes/template', $data);
 	}
+
+	function logout(){
+		$this->session->unset_userdata('nis');
+		$this->session->unset_userdata('username');
+	}
 }
 ?>

@@ -8,15 +8,17 @@
     <div class="container">
         <div class="col-md-5">
             <h2>Data Pribadi</h2>
-            <?php// foreach ($data_siswa as $data): ?>
             <div class="form-group">
                 <label for="nis">Nomor Induk Siswa (NIS)*</label>
                 <input type="text" name="nis" class="form-control"  />
             </div>
-            <?php// endforeach; ?>
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" name="nama" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="img_karya" id="img_karya">Upload Foto Close Up</label>
+                <?php echo form_upload('userfile'); ?>
             </div>
             <div class="form-group">
                 <label for="tempat_lahir">Tempat Lahir</label>
