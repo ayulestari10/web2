@@ -16,22 +16,13 @@ class Announcement extends CI_Controller{
 	function index(){
 		$data = array(
 			'title'		=> 'Pengumuman | Penerimaan Siswa Baru',
-			'content'	=> 'list_announce'
+			'content'	=> 'list_announce',
+			'data'		=> $this->announce_model->get_all()
 		);
 		$this->load->view('includes/template', $data);	
 	}
 
 	function input(){
-		if($this->input->post('input')){
-			$data = array(
-				'title'		=> 'Input Pengumuman | Penerimaan Siswa Baru',
-				'content'	=> 'input_announce'
-			);
-			$this->load->view('includes/template', $data);
-		}
-	}
-
-	function input_announce(){
 		if($this->input->post('input')){
 			$input = array (
 				'title'				=> $this->input->post('title'),
@@ -39,20 +30,15 @@ class Announcement extends CI_Controller{
 				'detail'			=> $this->input->post('detail')
 			);
 			$this->announce_model->insert($input);
-			
-			$title 			= $this->input->post('title');
-			$pelaksanaan 	= $this->input->post('pelaksanaan');
-			$detail 		= $this->input->post('detail');
-
-			if(isset($title, $detail, $pelaksanaan)){
-				$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diinput!</div>');
-			} else {
-				$this->session->set_flashdata('msg', '<div class="alert alert-danger" style="text-align:center;">Data gagal diinput!</div>');
-			}
+			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diinput!</div>');
 			redirect('announcement/input');
-		} else {
-			redirect('announcement/input');
+			exit;
 		}
+		$data = array(
+			'title'		=> 'Input Pengumuman | Penerimaan Siswa Baru',
+			'content'	=> 'input_announce'
+		);
+		$this->load->view('includes/template', $data);
 	}
 	
 	function edit_announce(){
@@ -63,9 +49,9 @@ class Announcement extends CI_Controller{
 				'detail'			=> $this->input->post('detail')
 			);
 			$this->announce_model->update($this->session->userdata('id_announce'), $data);
-			$id_announce = $this->announce_model->get_id($this->session->userdata('id_announce'));
-			$this->announce_model->do_upload($id_announce);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
+			redirect('announcement/edit_announce');
+			exit;
 		}
 
 		$data = array(
