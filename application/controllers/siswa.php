@@ -11,7 +11,7 @@ class Siswa extends CI_Controller{
 		}
 	}
 	
-	function index(){
+	function edit(){
 		if ($this->input->post('edit')) {
 			$input = array (
 				'nama'				=> $this->input->post('nama'),
@@ -53,7 +53,7 @@ class Siswa extends CI_Controller{
         );
         $this->load->view('kartu', $data);
 	}
-	/*
+	
 	public function kartu_peserta() {
         $data = array(
         	'data' 		=> $this->siswa_model->get_data_byNis($this->session->userdata('nis')),
@@ -74,7 +74,7 @@ class Siswa extends CI_Controller{
         //download it.
         $this->m_pdf->pdf->Output($pdfFilePath, "D");        
     }
-	*/
+	
 }
 
  ?>
