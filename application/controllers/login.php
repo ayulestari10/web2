@@ -34,7 +34,8 @@ class Login extends CI_Controller{
 		if($this->input->post('login')){
 			$data = array(
 				'username'		=> $this->input->post('username'),
-				'password' 	=> md5($this->input->post('password'))
+				'password' 	=> md5($this->input->post('password')),
+				''
 			);
 			$data_admin = $this->login_model->cek_login_admin($data);
 			if($this->login_model->rows == 1){

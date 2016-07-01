@@ -32,7 +32,7 @@
 			<a href="<?= base_url('admin/daftar_admin/') ?>"><button class="btn btn-succcess btn-lg">Admin</button></a>
 		</div>
 	    <div class="col-md-2">
-           <a href="<?= base_url('announcement/edit_announce') ?>"><button class="btn btn-default" name="edit_announce">Input Pengumuman</button></a>
+           <a href="<?= base_url('announcement/input') ?>"><button class="btn btn-default" name="edit_announce">Input Pengumuman</button></a>
         </div>
 	</div>
 </div>

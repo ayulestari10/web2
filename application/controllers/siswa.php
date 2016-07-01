@@ -11,6 +11,15 @@ class Siswa extends CI_Controller{
 		}
 	}
 	
+	function index(){
+		$data = array(
+			'data' 		=> $this->siswa_model->get_data_byNis($this->session->userdata('nis')),
+			'title'		=> 'Penerimaan Siswa Baru',
+			'content'	=> 'edit_data'
+		);
+		$this->load->view('includes/template', $data);
+	}
+
 	function edit(){
 		if ($this->input->post('edit')) {
 			$input = array (

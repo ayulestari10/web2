@@ -20,7 +20,6 @@
 	span{font-size: 25px;}
 	.body{text-align: center;}
 	.foto{width: 144px; height: 216px; margin-top: 10px; margin-bottom: 10px; margin-left: 98px;}
-	.foto img{width: 144px; height: 216px;}
 </style>
 
 <div id="cover">
@@ -33,7 +32,7 @@
 		<div class="body">
 			<span><strong>Jalur Tertulis</strong></span>
 			<div class="foto">
-				<img src="<?= base_url('foto/'.$id_siswa.'.png') ?>">
+				<img src="<?= base_url('foto/'.$id_siswa.'.png') ?>" width="144" height="216" />
 			</div>
 			<span><strong><?= $data->nama ?></strong></span><br>
 			<span><strong><?= $data->nis ?></strong></span><br>
