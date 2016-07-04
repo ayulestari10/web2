@@ -39,7 +39,7 @@
 							<tr>
 								<td>Upload Foto</td>
 								<td></td>
-								<td><?php echo form_upload('userfile'); ?></td>
+								<td><input type="file" name="userfile" /></td>
 							</tr>
 
 							<tr>

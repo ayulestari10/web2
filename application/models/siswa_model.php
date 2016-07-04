@@ -10,7 +10,7 @@ class Siswa_model extends CI_Model{
 		parent::__construct();
 		$this->table 			= 'siswa';
 		$this->key 				= 'no_pendaftaran';
-		$this->foto 			= realpath(APPPATH .'../foto');
+		$this->foto 			= realpath(APPPATH.'../foto');
 		$this->galerry_path_url = base_url().'foto/';
 	}
 
@@ -61,13 +61,14 @@ class Siswa_model extends CI_Model{
 	}
 
 	function do_upload($id_siswa){
-		unlink(realpath(APPPATH . '../foto/' . $id_siswa . '.png'));
+		//unlink(realpath(APPPATH . '../foto/' . $id_siswa . '.png'));
 
 		$config = array (
-			'file_name' 	=> $id_siswa. '.png',
+			'file_name' 	=> $id_siswa.'.png',
+			'upload_path'	=> '/foto',
 			'allowed_types' => 'jpg|jpeg|gif|png',
 			'upload_path' 	=> $this->foto,
-			'max_size' 		=> 5000
+			'max_size' 		=> 2000
 		);
 
 		$this->load->library('upload', $config);

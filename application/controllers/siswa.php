@@ -47,10 +47,9 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ayah'	=> $this->input->post('pekerjaan_ayah'),
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
-			
-			$this->siswa_model->insert($input);
 			$id_siswa = $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
 			$this->siswa_model->do_upload($id_siswa);
+			$this->siswa_model->insert($input);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil disimpan!</div>');
 			redirect('siswa');
 			exit;
