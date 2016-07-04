@@ -12,9 +12,9 @@
 	?>
 	
 	<?php 
-	$nis = $this->session->flashdata('nis');
-	if (isset($nis)) {
-	     echo form_open('admin/edit/'.$nis);
+	$no_pendaftaran = $this->session->flashdata('no_pendaftaran');
+	if (isset($no_pendaftaran)) {
+	     echo form_open('admin/edit/'.$no_pendaftaran);
 	} else {
 	     echo form_open_multipart('siswa/edit');
 	}
@@ -29,8 +29,8 @@
 	                <?php echo form_upload('userfile'); ?>
 	            </div>
 				<div class="form-group">
-					<label for="nis" >Nomor Induk Siswa / NIS</label>
-					<input class="form-control" type="text" name="nis" value="<?= $data->nis ?>" />
+					<label for="no_pendaftaran" >Nomor Induk Siswa / no_pendaftaran</label>
+					<input class="form-control" type="text" name="no_pendaftaran" value="<?= $data->no_pendaftaran ?>" />
 				</div>
 				<div class="form-group">
 					<label for="nama" >Nama</label>
@@ -49,8 +49,8 @@
 					<input class="form-control" type="text" name="tanggal_lahir" value="<?= $data->tanggal_lahir ?>" />
 				</div>
 				<div class="form-group">
-					<label for="jenis_kelamin" >Jenis Kelamin</label>
-					<input class="form-control" type="text" name="jenis_kelamin" value="<?= $data->jenis_kelamin ?>" />
+					<label for="jeno_pendaftaran_kelamin" >Jeno_pendaftaran Kelamin</label>
+					<input class="form-control" type="text" name="jeno_pendaftaran_kelamin" value="<?= $data->jeno_pendaftaran_kelamin ?>" />
 				</div>
 				<div class="form-group">
 					<label for="agama" >Agama</label>

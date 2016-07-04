@@ -28,11 +28,14 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-md-1" style="margin-top: 4%;">
-			<a href="<?= base_url('admin/daftar_admin/') ?>"><button class="btn btn-succcess btn-lg">Admin</button></a>
+		<div class="col-md-1" style="margin-top: 4%; margin-bottom: 2%;">
+			<a href="<?= base_url('admin') ?>" class="btn btn-default">Admin</a>
 		</div>
-	    <div class="col-md-2">
-           <a href="<?= base_url('announcement/input') ?>"><button class="btn btn-default" name="edit_announce">Input Pengumuman</button></a>
+	    <div class="col-md-2" style="margin-bottom: 2%;">
+           <a href="<?= base_url('announcement/input') ?>" class="btn btn-default">Input Pengumuman</a>
+        </div>
+        <div class="col-md-2" style="margin-bottom: 2%;">
+           <a href="<?= base_url('announcement/') ?>" class="btn btn-default">List Pengumuman</a>
         </div>
 	</div>
 </div>

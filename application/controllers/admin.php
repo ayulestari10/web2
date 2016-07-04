@@ -22,19 +22,10 @@ class Admin extends CI_Controller{
 		$this->load->view('includes/template', $data);
 	}
 
-	function daftar_admin(){
-		$data = array(
-			'data' 		=> $this->admin_model->get_all(),
-			'title'		=> 'Edit Admin | Penerimaan Siswa Baru',
-			'content'	=> 'admin'
-		);
-		$this->load->view('includes/template', $data);
-	}
-
 	function edit_admin(){
 		$username = $this->uri->segment(3);
 		if(!isset($username)){
-			redirect('admin/daftar_admin');
+			redirect('admin');
 			exit;
 		}
 		if($this->input->post('edit_admin')){
@@ -61,9 +52,9 @@ class Admin extends CI_Controller{
 		if(isset($username)){
 			$this->admin_model->delete($username);
 		} else {
-			redirect('admin/daftar_admin');
+			redirect('admin');
 		}
-		redirect('admin/daftar_admin');
+		redirect('admin');
 	}
 
 	function edit(){

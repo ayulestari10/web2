@@ -34,8 +34,11 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-md-2">
-			<a href="<?= base_url('announcement/input') ?>" class="btn btn-default">Post Pengumuman</a>
+		<div class="col-md-2" style="margin-top: 14%; margin-bottom: 2%;">
+			<a href="<?= base_url('home') ?>" class="btn btn-default">Lihat Pengumuman</a>
+		</div>
+		<div class="col-md-2" style="margin-bottom: 2%; float: right;">
+			<a href="<?= base_url('admin') ?>" class="btn btn-default">Kembali</a>
 		</div>
 	</div>
 </div>

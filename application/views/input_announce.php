@@ -38,6 +38,6 @@
 
 <div class="container">
 	<div class="col-md-1 col-md-offset-8" style="margin-top: -6%;">
-	    <a href="<?= base_url('announcement/') ?>" class="btn btn-info">Kembali</a>
+	    <a href="<?= base_url('admin') ?>" class="btn btn-info">Kembali</a>
 	</div>
 </div>

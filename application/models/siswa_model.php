@@ -9,7 +9,7 @@ class Siswa_model extends CI_Model{
 	function __construct(){
 		parent::__construct();
 		$this->table 			= 'siswa';
-		$this->key 				= 'nis';
+		$this->key 				= 'no_pendaftaran';
 		$this->foto 			= realpath(APPPATH .'../foto');
 		$this->galerry_path_url = base_url().'foto/';
 	}
@@ -20,9 +20,9 @@ class Siswa_model extends CI_Model{
 		return $query->result();
 	}
 
-	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai dengan nisnya
-	function get_data_byNis($nis){
-		$this->db->where($this->key, $nis); // SELECT * FROM siswa WHERE nis = $nis
+	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai dengan no_pendaftarannya
+	function get_data_byno_pendaftaran($no_pendaftaran){
+		$this->db->where($this->key, $no_pendaftaran); // SELECT * FROM siswa WHERE no_pendaftaran = $no_pendaftaran
 		$query = $this->db->get($this->table);
 		return $query->row();
 	}
@@ -32,15 +32,15 @@ class Siswa_model extends CI_Model{
 		return $this->db->insert($this->table, $data); // INSERT INTO siswa(nama,..) VALUES ('ayu',..)
 	}
 
-	// Method ini digunakan untuk mengupdate data siswa sesuai dengan nisnya
-	function update($nis, $data){
-		$this->db->where($this->key, $nis); // UPDATE siswa SET nama= 'Azhary', nis ='9', password ='4kuGanteng' WHERE nis= $nis
+	// Method ini digunakan untuk mengupdate data siswa sesuai dengan no_pendaftarannya
+	function update($no_pendaftaran, $data){
+		$this->db->where($this->key, $no_pendaftaran); // UPDATE siswa SET nama= 'Azhary', no_pendaftaran ='9', password ='4kuGanteng' WHERE no_pendaftaran= $no_pendaftaran
 		return $this->db->update($this->table, $data);
 	}
 
-	// Method ini digunakan untuk menghapus 1 baris data siswa sesuai dengan nisnya
-	function delete($nis){
-		return $this->db->delete($this->table, array($this->key => $nis)); // DELETE FROM siswa WHERE nis = $nis
+	// Method ini digunakan untuk menghapus 1 baris data siswa sesuai dengan no_pendaftarannya
+	function delete($no_pendaftaran){
+		return $this->db->delete($this->table, array($this->key => $no_pendaftaran)); // DELETE FROM siswa WHERE no_pendaftaran = $no_pendaftaran
 	}
 
 	// Method ini digunakan untuk mengambil data 
@@ -50,9 +50,9 @@ class Siswa_model extends CI_Model{
 		return $query;
 	}
 
-	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai nisnya dan mengembalikan id siswa tersebut
-	function get_id($nis){
-		$this->db->where($this->key, $nis); // SELECT * FROM siswa WHERE nis = $nis
+	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai no_pendaftarannya dan mengembalikan id siswa tersebut
+	function get_id($no_pendaftaran){
+		$this->db->where($this->key, $no_pendaftaran); // SELECT * FROM siswa WHERE no_pendaftaran = $no_pendaftaran
 		$query = $this->db->get($this->table);
 		foreach ($query->result() as $row) {
 			$id_siswa = $row->id_siswa;
@@ -72,31 +72,8 @@ class Siswa_model extends CI_Model{
 
 		$this->load->library('upload', $config);
 		$this->upload->do_upload();	
-		/*$image_data= $this->upload->data();
-
-		$config = array (
-			'source_image' 	=> $image_data['full_path'],
-			'maintain_ratio' => true
-		);
-
-		$this->load->library('image_lib', $config);
-		$this->image_lib -> resize(); 
-		*/
-	}
-
-	function get_foto(){
-		$files = scandir($this->galerry_path);
-		$files = array_diff($files, array('.','..'));
-
-		$foto = array();
-		foreach ($files as $file){
-			$foto[] = array (
-				'url' => $this->foto_url . $file
-			);
-		}
-		return $foto;
 	}
 
 }
 
-?>
+ ?>

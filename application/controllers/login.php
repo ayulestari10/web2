@@ -9,7 +9,7 @@ class Login extends CI_Controller{
 	function siswa(){
 		if($this->input->post('login')){
 			$data = array(
-				'nis'		=> $this->input->post('nis'),
+				'no_pendaftaran'		=> $this->input->post('no_pendaftaran'),
 				'password' 	=> md5($this->input->post('password'))
 			);
 			$data_siswa = $this->login_model->cek_login_siswa($data);
@@ -34,8 +34,7 @@ class Login extends CI_Controller{
 		if($this->input->post('login')){
 			$data = array(
 				'username'		=> $this->input->post('username'),
-				'password' 	=> md5($this->input->post('password')),
-				''
+				'password' 		=> md5($this->input->post('password'))
 			);
 			$data_admin = $this->login_model->cek_login_admin($data);
 			if($this->login_model->rows == 1){
@@ -55,7 +54,7 @@ class Login extends CI_Controller{
 	}
 
 	function logout(){
-		$this->session->unset_userdata('nis');
+		$this->session->unset_userdata('no_pendaftaran');
 		$this->session->unset_userdata('username');
 	}
 }

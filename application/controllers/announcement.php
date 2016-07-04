@@ -30,7 +30,7 @@ class Announcement extends CI_Controller{
 				'detail'			=> $this->input->post('detail')
 			);
 			$this->announce_model->insert($input);
-			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diinput!</div>');
+			$this->session->set_userdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diinput!</div>');
 			redirect('announcement/input');
 			exit;
 		}
@@ -42,34 +42,38 @@ class Announcement extends CI_Controller{
 	}
 	
 	function edit_announce(){
+		$id_announce = $this->uri->segment(3);
+
 		if ($this->input->post('edit_announce')) {
 			$data = array (
 				'title'				=> $this->input->post('title'),
 				'pelaksanaan'		=> $this->input->post('pelaksanaan'),
 				'detail'			=> $this->input->post('detail')
 			);
-			$this->announce_model->update($this->session->userdata('id_announce'), $data);
+			
+			$this->announce_model->update($id_announce, $data);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
-			redirect('announcement/edit_announce');
+			redirect('announcement/edit_announce/'.$id_announce);
 			exit;
 		}
 
 		$data = array(
-			'data' 		=> $this->announce_model->get_data_byid_announce($this->session->userdata('id_announce')),
+			'data' 		=> $this->announce_model->get_data_byid_announce($id_announce),
 			'title'		=> 'Edit Pengumuman | Penerimaan Siswa Baru',
 			'content'	=> 'edit_announce'
 		);
+		$this->session->set_flashdata('id_announce', $id_announce);
 		$this->load->view('includes/template', $data);
 	}
 
 	function delete_announce(){
 		$id_announce = $this->uri->segment(3);
 		if(isset($id_announce)){
-			$this->siswa_model->delete($id_announce);
+			$this->announce_model->delete($id_announce);
 		} else {
-			redirect('announcement');
+			redirect('announcement/');
 		}
-		redirect('announcement');
+		redirect('announcement/');
 	}
 }
 

@@ -8,16 +8,12 @@
 		if(isset($msg)){
 			echo $msg;
 		}
- 
-		$username = $this->session->flashdata('username');
-		if (isset($username)) {
-		     echo form_open('announcement/edit_announce/'.$username);
-		} else {
-		     echo form_open('announcement/edit_announce');
-		}
+		$username 		= $this->session->flashdata('username');
+
+		echo form_open('announcement/edit_announce/'.$this->session->flashdata('id_announce'));
 	?>
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-8  col-md-offset-2">
 			<h1> Edit Pengumuman</h1>
 			<div class="form-group">
 				<label for="title" >Judul</label>
@@ -32,11 +28,10 @@
 				<textarea class="form-control" name="detail"><?= $data->detail ?></textarea>
 			</div>
 		</div>
-		<div class="row" style="margin-bottom: 2%; margin-top: 2%;">
-	        <div class="col-md-1">
-	            <input type="submit" value="edit_announce" class="btn btn-success" name="edit_announce_announce" />
-	        </div>
-	    </div>
 	</div>
+	<div class="col-md-1 col-md-offset-5" style="margin-bottom: 2%;">
+        <input type="submit" value="Edit" class="btn btn-success" name="edit_announce" />
+    </div>
+
 	<?php form_close(); ?>
 </div>

@@ -4,8 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12" style="text-align: center;">
-                        Copyright &copy; 2016 Nama Sekolah <br>
-                        Alamat Sekolah
+                        Copyright &copy; 2016 SMK Muhammadiyah 2 Palembang<br>
                     </div>
                 </div>
             </div>
@@ -20,7 +19,7 @@
     </div>
 
     <!-- jQuery -->
-    <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>

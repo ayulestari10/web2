@@ -14,8 +14,8 @@
 			<div class="col-md-5 col-md-offset-3">
 				<h2>Daftar Akun</h2>
 				<div class="form-group">
-	                <label for="nis">Nomor Induk Siswa/NIS</label>
-	                <input type="text" name="nis" class="form-control" />
+	                <label for="no_pendaftaran">Nomor Pendaftaran</label>
+	                <input type="text" name="no_pendaftaran" class="form-control" />
 	            </div>
 	            <div class="form-group">
 	                <label for="password">Password</label>
