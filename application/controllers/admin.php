@@ -58,46 +58,54 @@ class Admin extends CI_Controller{
 	}
 
 	function edit(){
-		$nis = $this->uri->segment(3);
-		if (!isset($nis)) {
+		$no_pendaftaran = $this->uri->segment(3);
+		if (!isset($no_pendaftaran)) {
 		    redirect('admin');
 		    exit;
 		}
 		if ($this->input->post('edit')) {
 			$input = array (
-				'nama'			=> $this->input->post('nama'),
-				'tempat_lahir'	=> $this->input->post('tempat_lahir'),
-				'tanggal_lahir'	=> $this->input->post('tanggal_lahir'),
-				'jenis_kelamin'	=> $this->input->post('jenis_kelamin'),
-				'agama'			=> $this->input->post('agama'),
-				'alamat_lengkap'=> $this->input->post('alamat_lengkap'),
-				'no_telepon'	=> $this->input->post('no_telepon'),
-				'no_hp'			=> $this->input->post('no_hp'),
-				'email'			=> $this->input->post('email'),
-				'nilai_kimia'	=> $this->input->post('nilai_kimia'),
-				'nilai_biologi'		=> $this->input->post('nilai_biologi'),
+				'nama'				=> $this->input->post('nama'),
+				'foto'				=> $this->input->post('userfile'),
+				'jenis_kelamin'		=> $this->input->post('jenis_kelamin'),
+				'tempat_lahir'		=> $this->input->post('tempat_lahir'),
+				'tanggal'			=> $this->input->post('tanggal'),
+				'bulan'				=> $this->input->post('bulan'),
+				'tahun'				=> $this->input->post('tahun'),
+				'alamat_lengkap'	=> $this->input->post('alamat_lengkap'),
+				'no_telp_hp'		=> $this->input->post('no_telp_hp'),
+				'email'				=> $this->input->post('email'),
+				'keahlian'			=> $this->input->post('keahlian'),
+				'nama_sekolah'		=> $this->input->post('nama_sekolah'),
+				'tahun_lulus'		=> $this->input->post('tahun_lulus'),
+				'no_sttb'			=> $this->input->post('no_sttb'),
+				'nisn'				=> $this->input->post('nisn'),
+				'nilai_bing'		=> $this->input->post('nilai_bing'),
+				'nilai_bindo'		=> $this->input->post('nilai_bindo'),
 				'nilai_matematika'	=> $this->input->post('nilai_matematika'),
-				'nilai_fisika'	=> $this->input->post('nilai_fisika'),
-				'nilai_bindo'	=> $this->input->post('nilai_bindo'),
-				'nilai_bing'	=> $this->input->post('nilai_bing')
+				'nilai_ipa'			=> $this->input->post('nilai_ipa'),
+				'nama_ayah'			=> $this->input->post('nama_ayah'),
+				'nama_ibu'			=> $this->input->post('nama_ibu'),
+				'pekerjaan_ayah'	=> $this->input->post('pekerjaan_ayah'),
+				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
-			$this->siswa_model->update($nis, $input);
+			$this->siswa_model->update($no_pendaftaran, $input);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
 		}
 
 		$data = array(
-			'data' 		=> $this->siswa_model->get_data_byNis($nis),
+			'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($no_pendaftaran),
 			'title'		=> 'Edit Data | Penerimaan Siswa Baru',
 			'content'	=> 'edit_data'
 		);
-		$this->session->set_flashdata('nis', $nis);
+		$this->session->set_flashdata('no_pendaftaran', $no_pendaftaran);
 		$this->load->view('includes/template', $data);
 	}
 
 	function delete(){
-		$nis = $this->uri->segment(3);
-		if(isset($nis)){
-			$this->siswa_model->delete($nis);
+		$no_pendaftaran = $this->uri->segment(3);
+		if(isset($no_pendaftaran)){
+			$this->siswa_model->delete($no_pendaftaran);
 		} else {
 			redirect('admin');
 		}

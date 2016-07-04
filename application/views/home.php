@@ -152,7 +152,7 @@
 									<div id="g">
 										<u><u>11<u>10<u>9</u>8</u>7</u>6</u>
 									</div>
-									<div id="q"><a href="" style="position:relative;z-index:1000;color:#222;text-decoration:none;">Swapnil Chafale</a></div>
+									<div id="q"><a href="" style="position:relative;z-index:1000;color:#222;text-decoration:none;">Clock</a></div>
 								</div>
 								<div class="hh">
 									<div class="h"></div>
@@ -174,7 +174,9 @@
 		</div>
 	<!-- End of Clock -->
 
+	<!-- Calender -->
 
+	<!-- End Of Calender -->
 </div>
 
 </body>

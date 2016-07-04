@@ -100,7 +100,7 @@
 		</div>
 
 		<div class="row" style="margin-bottom: 3%;">
-			<div class="col-md-2 col-md-offset-1">
+			<div class="col-md-2 col-md-offset-5">
 				<div id="button1" class="btn btn-info button1">
 					Selanjutnya
 				</div>

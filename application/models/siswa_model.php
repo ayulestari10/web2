@@ -67,7 +67,7 @@ class Siswa_model extends CI_Model{
 			'file_name' 	=> $id_siswa. '.png',
 			'allowed_types' => 'jpg|jpeg|gif|png',
 			'upload_path' 	=> $this->foto,
-			'max_size' 		=> 2000
+			'max_size' 		=> 5000
 		);
 
 		$this->load->library('upload', $config);
