@@ -143,7 +143,7 @@
 		</div>
 		<div class="row" style="margin-bottom: 3%">
 			<div class="col-md-2 col-md-offset-5">
-				<a href="" class="btn btn-success">Selanjutnya</a>
+				<a href="" class="btn btn-info">Selanjutnya</a>
 			</div>
 		</div>
 	<!-- End of Data Sekolah -->

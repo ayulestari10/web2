@@ -60,6 +60,14 @@ class Siswa_model extends CI_Model{
 		return $id_siswa;
 	}
 
+	function get_last_data(){
+		$data = $this->db->query('SELECT * FROM siswa ORDER BY id_siswa ASC LIMIT 1');
+		foreach($data->result() as $row){
+			$id_siswa = $row->id_siswa;
+		}
+		return $id_siswa;
+	}
+
 	function do_upload($id_siswa){
 		//unlink(realpath(APPPATH . '../foto/' . $id_siswa . '.png'));
 

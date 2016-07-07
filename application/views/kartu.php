@@ -35,8 +35,8 @@
 				<img src="<?= base_url('foto/'.$id_siswa.'.png') ?>" width="144" height="216" />
 			</div>
 			<span><strong><?= $data->nama ?></strong></span><br>
-			<span><strong><?= $data->nis ?></strong></span><br>
-			<span><?= $data->asal_sekolah ?></span><br>
+			<span><strong><?= $data->nisn ?></strong></span><br>
+			<span><?= $data->nama_sekolah ?></span><br>
 		</div>
 	</div>
 </div>

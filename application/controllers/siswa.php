@@ -24,6 +24,7 @@ class Siswa extends CI_Controller{
 		if($this->input->post('input_data')){
 			$input = array (
 				'nama'				=> $this->input->post('nama'),
+				'foto'				=> 'id.png',
 				'jenis_kelamin'		=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir'		=> $this->input->post('tempat_lahir'),
 				'tanggal'			=> $this->input->post('tanggal'),
@@ -47,9 +48,8 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
 			$this->siswa_model->insert($input);
-
-			$foto		= $this->input->post('userfile');
-			$id_siswa 	= $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
+			$id_siswa 	= $this->siswa_model->get_last_data();
+			$this->siswa_model->update($id_siswa, array('foto' => $id_siswa . '.png'));
 			$this->siswa_model->do_upload($id_siswa);
 
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil disimpan!</div>');
