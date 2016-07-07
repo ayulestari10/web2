@@ -38,7 +38,6 @@ class Siswa extends CI_Controller{
 				'nama_sekolah'		=> $this->input->post('nama_sekolah'),
 				'tahun_lulus'		=> $this->input->post('tahun_lulus'),
 				'no_sttb'			=> $this->input->post('no_sttb'),
-				'nisn'				=> $this->input->post('nisn'),
 				'nilai_bing'		=> $this->input->post('nilai_bing'),
 				'nilai_bindo'		=> $this->input->post('nilai_bindo'),
 				'nilai_matematika'	=> $this->input->post('nilai_matematika'),
@@ -48,8 +47,7 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ayah'	=> $this->input->post('pekerjaan_ayah'),
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
-			$this->siswa_model->insert($input);
-			$this->siswa_model->update($this->uri->segment(3), $input);
+			$this->siswa_model->update($this->session->userdata('nisn'), $input);
 			$nisn = $this->uri->segment(3);
 			$this->siswa_model->do_upload($nisn);
 
@@ -71,47 +69,6 @@ class Siswa extends CI_Controller{
 		$data = array(
 			'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
 			'title'		=> 'Data | Penerimaan Siswa Baru',
-			'content'	=> 'view'
-		);
-		$this->load->view('includes/template', $data);
-	}
-
-	function edit(){
-		if ($this->input->post('edit_data')) {
-			$input = array (
-				'nama'				=> $this->input->post('nama'),
-				//'foto'				=> $this->input->post('userfile'),
-				'jenis_kelamin'		=> $this->input->post('jenis_kelamin'),
-				'tempat_lahir'		=> $this->input->post('tempat_lahir'),
-				'tanggal'			=> $this->input->post('tanggal'),
-				'bulan'				=> $this->input->post('bulan'),
-				'tahun'				=> $this->input->post('tahun'),
-				'alamat_lengkap'	=> $this->input->post('alamat_lengkap'),
-				'no_telp_hp'		=> $this->input->post('no_telp_hp'),
-				'email'				=> $this->input->post('email'),
-				'keahlian'			=> $this->input->post('keahlian'),
-				'nama_sekolah'		=> $this->input->post('nama_sekolah'),
-				'tahun_lulus'		=> $this->input->post('tahun_lulus'),
-				'no_sttb'			=> $this->input->post('no_sttb'),
-				'nisn'				=> $this->input->post('nisn'),
-				'nilai_bing'		=> $this->input->post('nilai_bing'),
-				'nilai_bindo'		=> $this->input->post('nilai_bindo'),
-				'nilai_matematika'	=> $this->input->post('nilai_matematika'),
-				'nilai_ipa'			=> $this->input->post('nilai_ipa'),
-				'nama_ayah'			=> $this->input->post('nama_ayah'),
-				'nama_ibu'			=> $this->input->post('nama_ibu'),
-				'pekerjaan_ayah'	=> $this->input->post('pekerjaan_ayah'),
-				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
-			);
-			$this->siswa_model->update($this->session->userdata('nisn'), $input);
-			//$nisn = $this->siswa_model->get_id($this->session->userdata('nisn'));
-			//$this->siswa_model->do_upload($nisn);
-			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
-		}
-
-		$data = array(
-			'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
-			'title'		=> 'View/Edit Data | Penerimaan Siswa Baru',
 			'content'	=> 'view'
 		);
 		$this->load->view('includes/template', $data);

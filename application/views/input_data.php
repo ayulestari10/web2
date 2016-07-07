@@ -1,4 +1,3 @@
-<?php echo $data->nama; ?>
 <style type="text/css">
 	span{color: red; font-weight: bolder;}	
 </style>
@@ -10,10 +9,10 @@
 			echo $msg;
 		}
 
-		$no_pendaftaran = $this->session->userdata('no_pendaftaran');
+		$nisn = $this->session->userdata('nisn');
 
-		if (isset($no_pendaftaran)) {
-		     echo form_open_multipart('siswa/input_data/'.$no_pendaftaran);
+		if (isset($nisn)) {
+		     echo form_open_multipart('siswa/input_data/'.$nisn);
 		} else {
 		     echo form_open_multipart('siswa/input_data');
 		}
@@ -137,7 +136,7 @@
 						<tr>
 							<td>Nomor Induk Siswa Nasional (NISN)</td>
 							<td>:</td>
-							<td><input type="text" name="nisn" class="form-control" /></td>
+							<td><?= $data->nisn ?></td>
 						</tr>
 					</tbody>
 				</table>
@@ -250,7 +249,7 @@
 				<input type="submit" value="Simpan" class="btn btn-success" name="input_data"/>
 			</div>
 			<div class="col-md-2">
-				<a href="<?= base_url('siswa/periksa') ?>" class="btn btn-info">View/Edit</a>
+				<a href="<?= base_url('siswa/periksa') ?>" class="btn btn-info">View</a>
 			</div>
 			<div class="col-md-2">
 				<a href="<?= base_url('siswa/kartu_peserta') ?>" class="btn btn-danger">Cetak</a>

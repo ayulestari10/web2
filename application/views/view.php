@@ -29,7 +29,7 @@
 								<td>Foto</td>
 								<td></td>
 								<td>
-									<img src="<?= base_url('foto/'.$data->no_pendaftaran.'.png') ?>">
+									<img src="<?= base_url('foto/'.$data->nisn.'.png') ?>">
 								</td>
 							</tr>
 
@@ -42,7 +42,7 @@
 							<tr>
 								<td>Tempat Tanggal Lahir</td>
 								<td>:</td>
-								<td><?= $data->tempat_lahir ?>, i<?= $data->tanggal ?> - <?= $data->bulan ?> - <?= $data->tahun ?>
+								<td><?= $data->tempat_lahir ?>, <?= $data->tanggal ?> - <?= $data->bulan ?> - <?= $data->tahun ?>
 								</td>
 							</tr>
 
@@ -112,8 +112,8 @@
 				<table class="table table-striped">
 					<tbody>
 						<tr>
-							<td>Bahasa Inggris</td>
-							<td>:</td>
+							<td style="width: 300px;">Bahasa Inggris</td>
+							<td style="width: 30px;">:</td>
 							<td><?= $data->nilai_bing ?></td>
 						</tr>
 
@@ -179,7 +179,7 @@
 			</div>
 		</div>
 		<div class="row" style="margin-bottom: 3%;">
-			<div class="col-md-2 col-md-offset-4">
+			<div class="col-md-2 col-md-offset-5">
 				<a href="<?= base_url('siswa/input_data') ?>" class="btn btn-info">Kembali</a>
 			</div>
 		</div>
