@@ -1,3 +1,4 @@
+<?php echo $data->nama; ?>
 <style type="text/css">
 	span{color: red; font-weight: bolder;}	
 </style>
@@ -10,7 +11,7 @@
 		}
 
 		$no_pendaftaran = $this->session->userdata('no_pendaftaran');
-		
+
 		if (isset($no_pendaftaran)) {
 		     echo form_open_multipart('siswa/input_data/'.$no_pendaftaran);
 		} else {

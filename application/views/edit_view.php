@@ -22,7 +22,9 @@
 							<tr>
 								<td>Nama Calon Siswa</td>
 								<td>:</td>
-								<td><?= $data->nama ?></td>
+								<td>
+									<input type="text" name="nama" class="form-control" value="<?= $data->nama ?>"/>
+								</td>
 							</tr>
 
 							<tr>
@@ -36,32 +38,41 @@
 							<tr>
 								<td>Jenis Kelamin</td>
 								<td>:</td>
-								<td><?= $data->jenis_kelamin ?></td>
+								<td>
+									<input type="text" name="jenis_kelamin" class="form-control" value="<?= $data->jenis_kelamin ?>"/>
+								</td>
 							</tr>
 
 							<tr>
 								<td>Tempat Tanggal Lahir</td>
 								<td>:</td>
-								<td><?= $data->tempat_lahir ?>, i<?= $data->tanggal ?> - <?= $data->bulan ?> - <?= $data->tahun ?>
+								<td>
+									<input type="text" name="tempat_lahir" class="form-control" value="<?= $data->tempat_lahir ?>"/><br><input type="text" name="tanggal" value="<?= $data->tanggal ?>"/> - <input type="text" name="bulan" value="<?= $data->bulan ?>"/> - <input type="text" name="tahun" value="<?= $data->tahun ?>"/>
 								</td>
 							</tr>
 
 							<tr>
 								<td>No Telp/Hp</td>
 								<td>:</td>
-								<td><?= $data->no_telp_hp ?></td>
+								<td>
+									<input type="text" name="no_telp_hp" class="form-control" value="<?= $data->no_telp_hp ?>"/>
+								</td>
 							</tr>
 
 							<tr>
 								<td>Email</td>
 								<td>:</td>
-								<td><?= $data->email ?></td>
+								<td>
+								<input type="text" name="email" class="form-control" value="<?= $data->email ?>"/>
+								</td>
 							</tr>
 
 							<tr>
 								<td>Kompetensi keahlian yang diinginkan</td>
 								<td>:</td>
-								<td><?= $data->keahlian ?></td>
+								<td>
+									<input type="text" name="keahlian" class="form-control" value="<?= $data->keahlian ?>"/>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -79,25 +90,33 @@
 						<tr>
 							<td style="width: 300px;">Nama Sekolah</td>
 							<td>:</td>
-							<td><?= $data->nama_sekolah ?></td>
+							<td>
+								<input type="text" name="nama_sekolah" class="form-control" value="<?= $data->nama_sekolah ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>Tahun Lulus</td>
 							<td>:</td>
-							<td><?= $data->tahun_lulus ?></td>
+							<td>
+							<input type="text" name="tahun_lulus" class="form-control" value="<?= $data->tahun_lulus ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>No STTB SMP</td>
 							<td>:</td>
-							<td><?= $data->no_sttb ?></td>
+							<td>
+								<input type="text" name="no_sttb" class="form-control" value="<?= $data->no_sttb ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>Nomor Induk Siswa Nasional (NISN)</td>
 							<td>:</td>
-							<td><?= $data->nisn ?></td>
+							<td>
+								<input type="text" name="nisn" class="form-control" value="<?= $data->nisn ?>"/>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -114,25 +133,33 @@
 						<tr>
 							<td>Bahasa Inggris</td>
 							<td>:</td>
-							<td><?= $data->nilai_bing ?></td>
+							<td>
+								<input type="text" name="nilai_bing" class="form-control" value="<?= $data->nilai_bing ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>Bahasa Indonesia</td>
 							<td>:</td>
-							<td><?= $data->nilai_bindo ?></td>
+							<td>
+								<input type="text" name="nilai_bindo" class="form-control" value="<?= $data->nilai_bindo ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>Matematika</td>
 							<td>:</td>
-							<td><?= $data->nilai_matematika ?></td>
+							<td>
+								<input type="text" name="nilai_matematika" class="form-control" value="<?= $data->nilai_matematika ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>IPA</td>
 							<td>:</td>
-							<td><?= $data->nilai_ipa ?></td>
+							<td>
+								<input type="text" name="nilai_ipa" class="form-control" value="<?= $data->nilai_ipa ?>"/>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -154,25 +181,33 @@
 						<tr>
 							<td>Nama Ayah</td>
 							<td>:</td>
-							<td><?= $data->nama_ayah ?></td>
+							<td>
+								<input type="text" name="nama_ayah" class="form-control" value="<?= $data->nama_ayah ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>Nama Ibu</td>
 							<td>:</td>
-							<td><?= $data->nama_ibu ?></td>
+							<td>
+								<input type="text" name="nama_ibu" class="form-control" value="<?= $data->nama_ibu ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>Pekerjaan Ayah</td>
 							<td>:</td>
-							<td><?= $data->pekerjaan_ayah ?></td>
+							<td>
+								<input type="text" name="pekerjaan_ayah" class="form-control" value="<?= $data->pekerjaan_ayah ?>"/>
+							</td>
 						</tr>
 
 						<tr>
 							<td>Pekerjaan Ibu</td>
 							<td>:</td>
-							<td><?= $data->pekerjaan_ibu ?></td>
+							<td>
+								<input type="text" name="pekerjaan_ibu" class="form-control" value="<?= $data->pekerjaan_ibu ?>"/>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -180,6 +215,9 @@
 		</div>
 		<div class="row" style="margin-bottom: 3%;">
 			<div class="col-md-2 col-md-offset-4">
+				<a href="<?= base_url('siswa/edit') ?>" class="btn btn-success" name="edit_data">Edit</a>
+			</div>
+			<div class="col-md-2 col-md-offset-1">
 				<a href="<?= base_url('siswa/input_data') ?>" class="btn btn-info">Kembali</a>
 			</div>
 		</div>

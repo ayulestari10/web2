@@ -21,10 +21,11 @@ class Siswa extends CI_Controller{
 	}
 
 	function input_data(){
+
 		if($this->input->post('input_data')){
 			$input = array (
 				'nama'				=> $this->input->post('nama'),
-				'foto'				=> $this->uri->segment(3) . '.png',
+				'foto'				=> $this->session->userdata('nisn') . '.png',
 				'jenis_kelamin'		=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir'		=> $this->input->post('tempat_lahir'),
 				'tanggal'			=> $this->input->post('tanggal'),
