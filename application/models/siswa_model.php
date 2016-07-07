@@ -9,7 +9,7 @@ class Siswa_model extends CI_Model{
 	function __construct(){
 		parent::__construct();
 		$this->table 			= 'siswa';
-		$this->key 				= 'no_pendaftaran';
+		$this->key 				= 'nisn';
 		$this->foto 			= realpath(APPPATH.'../foto');
 		$this->galerry_path_url = base_url().'foto/';
 	}
@@ -20,27 +20,27 @@ class Siswa_model extends CI_Model{
 		return $query->result();
 	}
 
-	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai dengan no_pendaftarannya
-	function get_data_byno_pendaftaran($no_pendaftaran){
-		$this->db->where($this->key, $no_pendaftaran); // SELECT * FROM siswa WHERE no_pendaftaran = $no_pendaftaran
+	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai dengan nisnnya
+	function get_data_bynisn($nisn){
+		$this->db->where($this->key, $nisn); // SELECT * FROM siswa WHERE nisn = $nisn
 		$query = $this->db->get($this->table);
 		return $query->row();
 	}
 
 	// Method ini digunakan untuk menginput data ke table siswa
 	function insert($data){
-		return $this->db->insert($this->table, $data); // INSERT INTO siswa(nama,..) VALUES ('ayu',..)
+		return $this->db->insert($this->table, $data); // INSERT INTO siswa(nisn,..) VALUES ('ayu',..)
 	}
 
-	// Method ini digunakan untuk mengupdate data siswa sesuai dengan no_pendaftarannya
-	function update($no_pendaftaran, $data){
-		$this->db->where($this->key, $no_pendaftaran); // UPDATE siswa SET nama= 'Azhary', no_pendaftaran ='9', password ='4kuGanteng' WHERE no_pendaftaran= $no_pendaftaran
+	// Method ini digunakan untuk mengupdate data siswa sesuai dengan nisnnya
+	function update($nisn, $data){
+		$this->db->where($this->key, $nisn); // UPDATE siswa SET nisn= 'Azhary', nisn ='9', password ='4kuGanteng' WHERE nisn= $nisn
 		return $this->db->update($this->table, $data);
 	}
 
-	// Method ini digunakan untuk menghapus 1 baris data siswa sesuai dengan no_pendaftarannya
-	function delete($no_pendaftaran){
-		return $this->db->delete($this->table, array($this->key => $no_pendaftaran)); // DELETE FROM siswa WHERE no_pendaftaran = $no_pendaftaran
+	// Method ini digunakan untuk menghapus 1 baris data siswa sesuai dengan nisnnya
+	function delete($nisn){
+		return $this->db->delete($this->table, array($this->key => $nisn)); // DELETE FROM siswa WHERE nisn = $nisn
 	}
 
 	// Method ini digunakan untuk mengambil data 
@@ -50,29 +50,29 @@ class Siswa_model extends CI_Model{
 		return $query;
 	}
 
-	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai no_pendaftarannya dan mengembalikan id siswa tersebut
-	function get_id($no_pendaftaran){
-		$this->db->where($this->key, $no_pendaftaran); // SELECT * FROM siswa WHERE no_pendaftaran = $no_pendaftaran
+	// Method ini digunakan untuk mengambil 1 baris data siswa sesuai nisnnya dan mengembalikan id siswa tersebut
+	function get_id($nisn){
+		$this->db->where($this->key, $nisn); // SELECT * FROM siswa WHERE nisn = $nisn
 		$query = $this->db->get($this->table);
 		foreach ($query->result() as $row) {
-			$no_pendaftaran = $row->no_pendaftaran;
+			$nisn = $row->nisn;
 		}
-		return $no_pendaftaran;
+		return $nisn;
 	}
 
 	function get_last_data(){
-		$data = $this->db->query('SELECT * FROM siswa ORDER BY no_pendaftaran ASC LIMIT 1');
+		$data = $this->db->query('SELECT * FROM siswa ORDER BY nisn ASC LIMIT 1');
 		foreach($data->result() as $row){
-			$no_pendaftaran = $row->no_pendaftaran;
+			$nisn = $row->nisn;
 		}
-		return $no_pendaftaran;
+		return $nisn;
 	}
 
-	function do_upload($no_pendaftaran){
-		//unlink(realpath(APPPATH . '../foto/' . $no_pendaftaran . '.png'));
+	function do_upload($nisn){
+		//unlink(realpath(APPPATH . '../foto/' . $nisn . '.png'));
 
 		$config = array (
-			'file_name' 	=> $no_pendaftaran.'.png',
+			'file_name' 	=> $nisn.'.png',
 			'upload_path'	=> '/foto',
 			'allowed_types' => 'jpg|jpeg|gif|png',
 			'upload_path' 	=> $this->foto,

@@ -3,7 +3,18 @@
 <head>
 	<title><?= $title ?></title>
 	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="<?= base_url('style.css') ?>">	
+	<link rel="stylesheet" type="text/css" href="<?= base_url('style.css') ?>">
+	<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="<?= base_url('assets/css/freelancer.css') ?>" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?= base_url('font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="<?= base_url('assets/js/jquery.js') ?>"></script>	
 	<style type="text/css">
 		body{
 			background-image: url('<?= base_url("images/bg2.jpg") ?>');
@@ -24,11 +35,11 @@
 		h1{text-align: center}
 		h3{padding-left: 4%;}
 		#title{
-			width: 100%; height: 140px; margin-bottom: 6%; margin-top: 5%; margin-left: -2%;
+			width: 100%; height: 160px; margin-bottom: 6%; margin-top: 5%; margin-left: -2%;
 			background-color: white; border: 2px solid black; 
 		}
 		ol li{text-align: justify-all;}
-		.content{}
+		.content{margin-bottom: 5%;}
 		.sidebar{margin-top: -375px;}
 		.clock{width: 50px; height: 50px; margin-left: 80%; margin-top: 10%;}
 	</style>
@@ -63,7 +74,7 @@
 
 				<a href="#">
 					<div class="boxes" style="height: 65px; font-size: 20px;">
-						Struktur Organisasi
+						Struktur<br>Organisasi
 					</div>
 				</a><br>
 

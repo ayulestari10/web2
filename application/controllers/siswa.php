@@ -4,8 +4,8 @@ class Siswa extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('siswa_model');
-		$no_pendaftaran = $this->session->userdata('no_pendaftaran');
-		if (!isset($no_pendaftaran)) {
+		$nisn = $this->session->userdata('nisn');
+		if (!isset($nisn)) {
 		   redirect('login/siswa');
 		   exit;
 		}
@@ -13,7 +13,7 @@ class Siswa extends CI_Controller{
 	
 	function index(){
 		$data = array(
-			'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
+			'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
 			'title'		=> 'Penerimaan Siswa Baru',
 			'content'	=> 'input_data'
 		);
@@ -24,7 +24,7 @@ class Siswa extends CI_Controller{
 		if($this->input->post('input_data')){
 			$input = array (
 				'nama'				=> $this->input->post('nama'),
-				'foto'				=> 'id.png',
+				'foto'				=> $this->uri->segment(3) . '.png',
 				'jenis_kelamin'		=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir'		=> $this->input->post('tempat_lahir'),
 				'tanggal'			=> $this->input->post('tanggal'),
@@ -48,9 +48,9 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
 			$this->siswa_model->insert($input);
-			$no_pendaftaran 	= $this->siswa_model->get_last_data();
-			$this->siswa_model->update($no_pendaftaran, array('foto' => $no_pendaftaran . '.png'));
-			$this->siswa_model->do_upload($no_pendaftaran);
+			$this->siswa_model->update($this->uri->segment(3), $input);
+			$nisn = $this->uri->segment(3);
+			$this->siswa_model->do_upload($nisn);
 
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil disimpan!</div>');
 			redirect('siswa');
@@ -58,7 +58,7 @@ class Siswa extends CI_Controller{
 		}
 			
 		$data = array(
-			'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
+			'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
 			'title'		=> 'Lengkapi Data | Penerimaan Siswa Baru',
 			'content'	=> 'input_data'
 		);
@@ -68,7 +68,7 @@ class Siswa extends CI_Controller{
 
 	function periksa(){
 		$data = array(
-			'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
+			'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
 			'title'		=> 'Data | Penerimaan Siswa Baru',
 			'content'	=> 'view'
 		);
@@ -102,14 +102,14 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ayah'	=> $this->input->post('pekerjaan_ayah'),
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
-			$this->siswa_model->update($this->session->userdata('no_pendaftaran'), $input);
-			//$no_pendaftaran = $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
-			//$this->siswa_model->do_upload($no_pendaftaran);
+			$this->siswa_model->update($this->session->userdata('nisn'), $input);
+			//$nisn = $this->siswa_model->get_id($this->session->userdata('nisn'));
+			//$this->siswa_model->do_upload($nisn);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
 		}
 
 		$data = array(
-			'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
+			'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
 			'title'		=> 'View/Edit Data | Penerimaan Siswa Baru',
 			'content'	=> 'view'
 		);
@@ -118,22 +118,22 @@ class Siswa extends CI_Controller{
 	
 	function kartu(){
 		$data = array(
-        	'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
-        	'no_pendaftaran'	=> $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'))
+        	'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
+        	'nisn'	=> $this->siswa_model->get_id($this->session->userdata('nisn'))
         );
         $this->load->view('kartu', $data);
 	}
 	
 	public function kartu_peserta() {
         $data = array(
-        	'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
-        	'no_pendaftaran'	=> $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'))
+        	'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
+        	'nisn'	=> $this->siswa_model->get_id($this->session->userdata('nisn'))
         );
         //load the view and saved it into $html variable
         $html = $this->load->view('kartu', $data, true);
  
         //this the the PDF filename that user will get to download
-        $pdfFilePath = $this->session->userdata('no_pendaftaran').".pdf";
+        $pdfFilePath = $this->session->userdata('nisn').".pdf";
  
         //load mPDF library
         $this->load->library('m_pdf');

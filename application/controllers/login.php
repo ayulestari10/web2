@@ -9,7 +9,7 @@ class Login extends CI_Controller{
 	function siswa(){
 		if($this->input->post('login')){
 			$data = array(
-				'nama'		=> $this->input->post('nama'),
+				'nisn'		=> $this->input->post('nisn'),
 				'password' 	=> md5($this->input->post('password'))
 			);
 			$data_siswa = $this->login_model->cek_login_siswa($data);
@@ -54,7 +54,7 @@ class Login extends CI_Controller{
 	}
 
 	function logout(){
-		$this->session->unset_userdata('nama');
+		$this->session->unset_userdata('nisn');
 		$this->session->unset_userdata('username');
 	}
 }

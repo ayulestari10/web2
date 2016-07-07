@@ -9,7 +9,8 @@
 			echo $msg;
 		}
 
-		$no_pendaftaran = $this->session->flashdata('no_pendaftaran');
+		$no_pendaftaran = $this->session->userdata('no_pendaftaran');
+		
 		if (isset($no_pendaftaran)) {
 		     echo form_open_multipart('siswa/input_data/'.$no_pendaftaran);
 		} else {

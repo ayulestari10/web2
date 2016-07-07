@@ -13,8 +13,8 @@
 			<div class="col-md-6 col-md-offset-3">
 				<h2>LOGIN</h2>
 				<div class="form-group">
-	                <label for="nama">Nama Calon Siswa</label>
-	                <input type="text" name="nama" class="form-control" />
+	                <label for="nisn">Nomor Induk Siswa Nasional / NISN</label>
+	                <input type="text" name="nisn" class="form-control" />
 	            </div>
 	            <div class="form-group">
 	                <label for="password">Password</label>
