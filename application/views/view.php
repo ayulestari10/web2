@@ -31,7 +31,7 @@
 								<td>Foto</td>
 								<td></td>
 								<td>
-									<img src="<?= base_url('foto/'.$data->id_siswa.'.png') ?>">
+									<img src="<?= base_url('foto/'.$data->no_pendaftaran.'.png') ?>">
 								</td>
 							</tr>
 
