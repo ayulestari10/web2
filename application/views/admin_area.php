@@ -20,7 +20,7 @@
 						<td><?= $data->nama ?></td>
 						<td><?= $data->alamat_lengkap ?></td>
 						<td>
-							<a href="<?= base_url('admin/edit/'.$data->no_pendaftaran) ?>"><input type="submit" value="Edit" class="btn btn-info" name="edit" /></a>
+							<a href="<?= base_url('admin/edit_siswa/'.$data->no_pendaftaran) ?>"><input type="submit" value="Edit" class="btn btn-info" name="edit" /></a>
 							<a href="<?= base_url('admin/delete/'.$data->no_pendaftaran) ?>"><input type="submit" value="Hapus" class="btn btn-danger" /></a>
 						</td>
 					</tr>
@@ -29,13 +29,16 @@
 			</table>
 		</div>
 		<div class="col-md-1" style="margin-top: 4%; margin-bottom: 2%;">
-			<a href="<?= base_url('admin') ?>" class="btn btn-default">Admin</a>
+			<a href="<?= base_url('admin/edit_admin') ?>" class="btn btn-default">Admin</a>
 		</div>
 	    <div class="col-md-2" style="margin-bottom: 2%;">
            <a href="<?= base_url('announcement/input') ?>" class="btn btn-default">Input Pengumuman</a>
         </div>
         <div class="col-md-2" style="margin-bottom: 2%;">
            <a href="<?= base_url('announcement/') ?>" class="btn btn-default">List Pengumuman</a>
+        </div>
+        <div class="col-md-2" style="margin-bottom: 2%;">
+           <a href="<?= base_url('announcement/announce') ?>" class="btn btn-default">Lihat Pengumuman</a>
         </div>
 	</div>
 </div>

@@ -215,10 +215,10 @@
 		</div>
 		<div class="row" style="margin-bottom: 3%;">
 			<div class="col-md-2 col-md-offset-4">
-				<a href="<?= base_url('siswa/edit') ?>" class="btn btn-success" name="edit_data">Edit</a>
+				<a href="<?= base_url('admin/edit_siswa') ?>" class="btn btn-success" name="edit_data">Edit</a>
 			</div>
 			<div class="col-md-2 col-md-offset-1">
-				<a href="<?= base_url('siswa/input_data') ?>" class="btn btn-success">Kembali</a>
+				<a href="<?= base_url('admin') ?>" class="btn btn-success">Kembali</a>
 			</div>
 		</div>
 	<!-- End of Biodata Orang Tua -->

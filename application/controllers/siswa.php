@@ -24,7 +24,6 @@ class Siswa extends CI_Controller{
 		if($this->input->post('input_data')){
 			$input = array (
 				'nama'				=> $this->input->post('nama'),
-				'foto'				=> $this->input->post('userfile'),
 				'jenis_kelamin'		=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir'		=> $this->input->post('tempat_lahir'),
 				'tanggal'			=> $this->input->post('tanggal'),
@@ -47,9 +46,12 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ayah'	=> $this->input->post('pekerjaan_ayah'),
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
-			$id_siswa = $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
-			$this->siswa_model->do_upload($id_siswa);
 			$this->siswa_model->insert($input);
+
+			$foto		= $this->input->post('userfile');
+			$id_siswa 	= $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
+			$this->siswa_model->do_upload($id_siswa);
+
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil disimpan!</div>');
 			redirect('siswa');
 			exit;
@@ -77,7 +79,7 @@ class Siswa extends CI_Controller{
 		if ($this->input->post('edit_data')) {
 			$input = array (
 				'nama'				=> $this->input->post('nama'),
-				'foto'				=> $this->input->post('userfile'),
+				//'foto'				=> $this->input->post('userfile'),
 				'jenis_kelamin'		=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir'		=> $this->input->post('tempat_lahir'),
 				'tanggal'			=> $this->input->post('tanggal'),
@@ -101,10 +103,8 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
 			$this->siswa_model->update($this->session->userdata('no_pendaftaran'), $input);
-			$id_siswa = $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
-			echo $id_siswa;
-			exit;
-			$this->siswa_model->do_upload($id_siswa);
+			//$id_siswa = $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
+			//$this->siswa_model->do_upload($id_siswa);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
 		}
 

@@ -22,6 +22,15 @@ class Announcement extends CI_Controller{
 		$this->load->view('includes/template', $data);	
 	}
 
+	function announce(){
+		$data = array(
+			'title'		=> 'Pengumuman | Penerimaan Siswa Baru',
+			'content'	=> 'announce',
+			'data'		=> $this->announce_model->get_all()
+		);
+		$this->load->view('includes/template', $data);	
+	}
+
 	function input(){
 		if($this->input->post('input')){
 			$input = array (
