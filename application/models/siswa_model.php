@@ -55,24 +55,24 @@ class Siswa_model extends CI_Model{
 		$this->db->where($this->key, $no_pendaftaran); // SELECT * FROM siswa WHERE no_pendaftaran = $no_pendaftaran
 		$query = $this->db->get($this->table);
 		foreach ($query->result() as $row) {
-			$id_siswa = $row->id_siswa;
+			$no_pendaftaran = $row->no_pendaftaran;
 		}
-		return $id_siswa;
+		return $no_pendaftaran;
 	}
 
 	function get_last_data(){
-		$data = $this->db->query('SELECT * FROM siswa ORDER BY id_siswa ASC LIMIT 1');
+		$data = $this->db->query('SELECT * FROM siswa ORDER BY no_pendaftaran ASC LIMIT 1');
 		foreach($data->result() as $row){
-			$id_siswa = $row->id_siswa;
+			$no_pendaftaran = $row->no_pendaftaran;
 		}
-		return $id_siswa;
+		return $no_pendaftaran;
 	}
 
-	function do_upload($id_siswa){
-		//unlink(realpath(APPPATH . '../foto/' . $id_siswa . '.png'));
+	function do_upload($no_pendaftaran){
+		//unlink(realpath(APPPATH . '../foto/' . $no_pendaftaran . '.png'));
 
 		$config = array (
-			'file_name' 	=> $id_siswa.'.png',
+			'file_name' 	=> $no_pendaftaran.'.png',
 			'upload_path'	=> '/foto',
 			'allowed_types' => 'jpg|jpeg|gif|png',
 			'upload_path' 	=> $this->foto,

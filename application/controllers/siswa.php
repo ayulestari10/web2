@@ -48,9 +48,9 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
 			$this->siswa_model->insert($input);
-			$id_siswa 	= $this->siswa_model->get_last_data();
-			$this->siswa_model->update($id_siswa, array('foto' => $id_siswa . '.png'));
-			$this->siswa_model->do_upload($id_siswa);
+			$no_pendaftaran 	= $this->siswa_model->get_last_data();
+			$this->siswa_model->update($no_pendaftaran, array('foto' => $no_pendaftaran . '.png'));
+			$this->siswa_model->do_upload($no_pendaftaran);
 
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil disimpan!</div>');
 			redirect('siswa');
@@ -103,8 +103,8 @@ class Siswa extends CI_Controller{
 				'pekerjaan_ibu'		=> $this->input->post('pekerjaan_ibu')
 			);
 			$this->siswa_model->update($this->session->userdata('no_pendaftaran'), $input);
-			//$id_siswa = $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
-			//$this->siswa_model->do_upload($id_siswa);
+			//$no_pendaftaran = $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'));
+			//$this->siswa_model->do_upload($no_pendaftaran);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
 		}
 
@@ -119,7 +119,7 @@ class Siswa extends CI_Controller{
 	function kartu(){
 		$data = array(
         	'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
-        	'id_siswa'	=> $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'))
+        	'no_pendaftaran'	=> $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'))
         );
         $this->load->view('kartu', $data);
 	}
@@ -127,7 +127,7 @@ class Siswa extends CI_Controller{
 	public function kartu_peserta() {
         $data = array(
         	'data' 		=> $this->siswa_model->get_data_byno_pendaftaran($this->session->userdata('no_pendaftaran')),
-        	'id_siswa'	=> $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'))
+        	'no_pendaftaran'	=> $this->siswa_model->get_id($this->session->userdata('no_pendaftaran'))
         );
         //load the view and saved it into $html variable
         $html = $this->load->view('kartu', $data, true);

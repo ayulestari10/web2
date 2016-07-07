@@ -15,7 +15,7 @@
 				<tbody>
 					<?php foreach($dt as $data): ?>
 					<tr>
-						<td><?= $data->id_siswa ?></td>
+						<td><?= $data->no_pendaftaran ?></td>
 						<td><?= $data->no_pendaftaran ?></td>
 						<td><?= $data->nama ?></td>
 						<td><?= $data->alamat_lengkap ?></td>
