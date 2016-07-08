@@ -7,16 +7,14 @@
 		$msg = $this->session->flashdata('msg');
 		if(isset($msg)){
 			echo $msg;
+		} 
+		
+		$username = $this->session->flashdata('username');
+		if (isset($username)) {
+		     echo form_open('admin/edit_admin/'.$username);
+		} else {
+		     echo form_open('admin/edit_admin');
 		}
-	?>
-	
-	<?php 
-	$username = $this->session->flashdata('username');
-	if (isset($username)) {
-	     echo form_open('admin/edit_admin/'.$username);
-	} else {
-	     echo form_open('admin/edit_admin');
-	}
 	?>
 		<div class="row">
 			<div class="col-md-6">
