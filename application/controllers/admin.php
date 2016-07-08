@@ -37,6 +37,9 @@ class Admin extends CI_Controller{
 		$username 		= $this->input->post('username');
 		$password 		= $this->input->post('password');
 
+		echo $username;
+		echo $password;
+		exit;
 		// Jika username dan password telah diinput
 		if(isset($username, $password)){
 			// Jika password = konfirmasi password
@@ -120,9 +123,9 @@ class Admin extends CI_Controller{
 		if(isset($username)){
 			$this->admin_model->delete($username);
 		} else {
-			redirect('admin');
+			redirect('admin/add');
 		}
-		redirect('admin');
+		redirect('admin/add');
 	}
 
 	/*							*

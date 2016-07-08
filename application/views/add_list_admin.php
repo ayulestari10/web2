@@ -1,5 +1,7 @@
 <style type="text/css">
 	h2{text-align: center;}
+	th{text-align: center;}
+	table{text-align: center;}
 </style>
 
 <div class="container">
