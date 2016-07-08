@@ -1,5 +1,10 @@
 <style type="text/css">
-	h2{text-align: center; margin-bottom: 15%;}
+	h2{text-align: center; margin-bottom: 2%;}
+	a{list-style: none;}
+	.pan{
+		font-size: 22px; font-weight: bolder; font-family: Verdana; text-align: center;
+		margin-bottom: 10%;
+	}
 </style>
 <?php echo form_open_multipart('login/admin'); ?>
 	<div class="container">
@@ -11,7 +16,10 @@
 	?>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<h2>Masuk Sebagai Admin</h2>
+				<h2>LOGIN</h2>
+				<div class="pan">
+					<a href="<?= base_url('login/siswa') ?>">SISWA</a> | <a href="<?= base_url('login/admin') ?>">ADMIN</a> 
+				</div>
 				<div class="form-group">
 	                <label for="username">Username</label>
 	                <input type="text" name="username" class="form-control" />

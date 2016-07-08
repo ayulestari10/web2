@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		<div class="col-md-2">
-			<a href="<?= base_url('admin/add_admin') ?>" class="btn btn-success">Tambah</a>
+			<input type="submit" class="btn btn-success" value="Tambah" name="add" />
 		</div>
 	</div>
 	<?= form_close() ?>

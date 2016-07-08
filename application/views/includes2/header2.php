@@ -28,19 +28,18 @@
 			background-color: black;
 		}
 		.box{
-			width: 100%; height: 260px; margin-left: -2%;
+			width: 100%; height: 270px; margin-left: -2%;
 			background-color: white; border: 2px solid black; 
 		}
 		a{list-style: none;}
 		h1{text-align: center}
 		h3{padding-left: 4%;}
 		#title{
-			width: 100%; height: 160px; margin-bottom: 6%; margin-top: 5%; margin-left: -2%;
-			background-color: white; border: 2px solid black; 
-		}
+			width: 100%; height: 200px; margin-bottom: 6%; margin-top: 5%; margin-left: -2%;
+			background-color: white; border: 2px solid black;		}
 		ol li{text-align: justify-all;}
 		.content{margin-bottom: 5%;}
-		.sidebar{margin-top: -375px;}
+		.sidebar{margin-top: -400px;}
 		.clock{width: 50px; height: 50px; margin-left: 80%; margin-top: 10%;}
 	</style>
 </head>

@@ -13,10 +13,8 @@
 						<tbody>
 							<tr>
 								<td style="width: 300px;">Nomor Pendaftaran</td>
-								<td style="width: 43px;">:</td>
-								<td>
-									<input type="text" name="no_pendaftaran" class="form-control" value="<?= $data->no_pendaftaran ?>"/>
-								</td>
+								<td style="width: 40px;">:</td>
+								<td><?= $data->no_pendaftaran ?></td>
 							</tr>
 
 							<tr>
@@ -86,7 +84,7 @@
 					<tbody>
 						<tr>
 							<td style="width: 300px;">Nama Sekolah</td>
-							<td>:</td>
+							<td style="width: 40px;">:</td>
 							<td><?= $data->nama_sekolah ?></td>
 						</tr>
 
@@ -121,7 +119,7 @@
 					<tbody>
 						<tr>
 							<td style="width: 300px;">Bahasa Inggris</td>
-							<td style="width: 30px;">:</td>
+							<td style="width: 40px;">:</td>
 							<td><?= $data->nilai_bing ?></td>
 						</tr>
 
@@ -155,8 +153,8 @@
 				<table class="table table-striped">
 					<tbody>
 						<tr>
-							<td>Nama Orang Tua</td>
-							<td></td>
+							<td style="width: 300px;">Nama Orang Tua</td>
+							<td style="width: 40px;"></td>
 							<td></td>
 						</tr>
 						<tr>
@@ -186,9 +184,9 @@
 				</table>
 			</div>
 		</div>
-		<div class="row" style="margin-bottom: 3%;">
-			<div class="col-md-2 col-md-offset-5">
-				<a href="<?= base_url('siswa/input_data') ?>" class="btn btn-info">Kembali</a>
+		<div class="row" style="margin-bottom: 3%; margin-top: 2%;">
+			<div class="col-md-2 col-md-offset-1">
+				<a href="<?= base_url('admin') ?>" class="btn btn-info">Kembali</a>
 			</div>
 		</div>
 	<!-- End of Biodata Orang Tua -->

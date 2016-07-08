@@ -37,9 +37,6 @@ class Admin extends CI_Controller{
 		$username 		= $this->input->post('username');
 		$password 		= $this->input->post('password');
 
-		echo $username;
-		echo $password;
-		exit;
 		// Jika username dan password telah diinput
 		if(isset($username, $password)){
 			// Jika password = konfirmasi password
@@ -149,7 +146,7 @@ class Admin extends CI_Controller{
 		}
 
 		$data = array(
-			'data' 		=> $this->siswa_model->get_data_bynis($nisn),
+			'data' 		=> $this->siswa_model->get_data_bynisn($nisn),
 			'title'		=> 'Edit data | Penerimaan Siswa Baru',
 			'content'	=> 'edit_data_by_admin'
 		);

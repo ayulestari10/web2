@@ -13,7 +13,7 @@
 						<tbody>
 							<tr>
 								<td style="width: 300px;">Nomor Pendaftaran</td>
-								<td style="width: 43px;">:</td>
+								<td style="width: 40px;">:</td>
 								<td>
 									<input type="text" name="no_pendaftaran" class="form-control" value="<?= $data->no_pendaftaran ?>"/>
 								</td>
@@ -78,7 +78,7 @@
 					<tbody>
 						<tr>
 							<td style="width: 300px;">Nama Sekolah</td>
-							<td>:</td>
+							<td style="width: 40px;">:</td>
 							<td><?= $data->nama_sekolah ?></td>
 						</tr>
 
@@ -113,7 +113,7 @@
 					<tbody>
 						<tr>
 							<td style="width: 300px;">Bahasa Inggris</td>
-							<td style="width: 30px;">:</td>
+							<td style="width: 40px;">:</td>
 							<td><?= $data->nilai_bing ?></td>
 						</tr>
 
@@ -147,8 +147,8 @@
 				<table class="table table-striped">
 					<tbody>
 						<tr>
-							<td>Nama Orang Tua</td>
-							<td></td>
+							<td style="width: 300px;">Nama Orang Tua</td>
+							<td style="width: 40px;"></td>
 							<td></td>
 						</tr>
 						<tr>
