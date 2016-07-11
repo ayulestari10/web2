@@ -2,11 +2,7 @@
 
 class Home extends CI_Controller{
 	function index(){
-		$data = array(
-			'title'		=> 'Penerimaan Siswa Baru | SMK Muhammadiyah 2 Palembang',
-			'content'	=> 'home'		
-		);
-		$this->load->view('includes2/template2', $data);
+		$this->load->view('home');
 	}
 
 	function visi_misi(){
