@@ -9,6 +9,7 @@
 			echo $msg;
 		}
 
+		$nisn = $this->session->flashdata('nisn');
 		if (isset($nisn)) {
 		     echo form_open_multipart('admin/edit_siswa/'.$nisn);
 		} else {
