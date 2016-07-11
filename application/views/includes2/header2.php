@@ -96,7 +96,7 @@
 					</div>
 				</a><br>
 
-				<a href="<?= base_url('home/pengumuman') ?>">
+				<a href="<?= base_url('home/hasil_seleksi') ?>">
 					<div class="boxes">
 						Pengumuman
 					</div>

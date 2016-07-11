@@ -16,6 +16,7 @@ class Admin extends CI_Controller{
 	// Method ini digunakan untuk masuk ke halaman admin yang berisi daftar siswa dan beberapa menu (tambah admin, input pengumuman, dan lihat pengumuman).
 	function index(){
 		$data = array(
+			'nisn'		=> $this->uri->segment(3),
 			'dt' 		=> $this->siswa_model->get_all(),
 			'title'		=> 'Daftar Siswa | Penerimaan Siswa Baru',
 			'content'	=> 'admin_area'
@@ -128,7 +129,18 @@ class Admin extends CI_Controller{
 	/*							*
 	**  AREA SISWA DI ADMIN 	**
 	**							**
-	*/							
+	*/	
+
+	//Method ini digunakan untuk menampilkan pengumuman hasil seleksi.
+	function hasil_seleksi(){
+		$data = array(
+			'nisn'		=> $this->uri->segment(3),
+			'dt' 		=> $this->siswa_model->get_all(),
+			'title'		=> 'Pengumuman | Penerimaan Siswa Baru',
+			'content'	=> 'pengumuman_lulus'
+		);
+		$this->load->view('includes/template', $data);
+	}						
 
 	// Method ini digunakan untuk mengedit password siswa dan melihat data siswa.
 	function edit_pass_siswa(){
@@ -139,9 +151,12 @@ class Admin extends CI_Controller{
 		    exit;
 		}
 		if ($this->input->post('edit')){
-			$password = $this->input->post('password');
+			$data = array(
+				'password'	=> $this->input->post('password'),
+				'hasil'		=> $this->input->post('hasil')
+			);
 
-			$this->siswa_model->update($nisn, $password);
+			$this->siswa_model->update($nisn, $data);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Password berhasil diedit!</div>');
 		}
 

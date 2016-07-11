@@ -3,6 +3,18 @@
 </style>
 
 <div class="container">
+	<?php  
+		$msg = $this->session->flashdata('msg');
+		if(isset($msg)){
+			echo $msg;
+		}
+
+		if (isset($nisn)) {
+		     echo form_open_multipart('admin/edit_pass_siswa/'.$nisn);
+		} else {
+		     echo form_open_multipart('admin/edit_pass_siswa/');
+		}
+	?>
 	<!-- Biodata Diri -->
 		<div class="biodata">
 			<div class="row">
@@ -21,6 +33,17 @@
 								<td>Nama Calon Siswa</td>
 								<td>:</td>
 								<td><?= $data->nama ?></td>
+							</tr>
+
+							<tr>
+								<td>Hasil</td>
+								<td></td>
+								<td>
+									<select name="hasil" class="form-control">
+										<option value="Lulus">Lulus</option>
+										<option value="Tidak Lulus">Tidak Lulus</option>
+									</select>
+								</td>
 							</tr>
 
 							<tr>
@@ -185,9 +208,13 @@
 			</div>
 		</div>
 		<div class="row" style="margin-bottom: 3%; margin-top: 2%;">
-			<div class="col-md-2 col-md-offset-1">
+			<div class="col-md-2 col-md-offset-4">
+				<input type="submit" value="Edit" class="btn btn-success" name="edit"/>
+			</div>
+			<div class="col-md-2">
 				<a href="<?= base_url('admin') ?>" class="btn btn-info">Kembali</a>
 			</div>
 		</div>
+		<?php echo form_close(); ?>
 	<!-- End of Biodata Orang Tua -->
 </div>

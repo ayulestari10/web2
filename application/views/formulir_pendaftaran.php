@@ -1,5 +1,5 @@
 <style type="text/css">
-	#foto img{width: 144px; height: 216px; border: 1px solid grey; margin-bottom: 2%;}	
+	.foto{width: 144px; height: 216px; border: 1px solid grey; margin-bottom: 4%;}
 </style>
 
 <div class="container">
@@ -7,16 +7,17 @@
 		<div class="biodata">
 			<div class="row">
 				<div class="col-md-11 col-md-offset-1">
-					<h1>FORMULIR PENDAFTARAN</h1>
-					<h2 style="margin-bottom: 4%;">BIODATA CALON SISWA</h2>
+					<h1 style="text-align: center;">FORMULIR PENDAFTARAN</h1>
+					<h2 style="margin-bottom: 5%;">BIODATA CALON SISWA</h2>
+					<div class="foto">
+						<img src="<?= base_url('foto/'.$data->nisn.'.png') ?>" width="144" height="216" />
+					</div>
 					<table class="table table-striped">
 						<tbody>
 							<tr>
 								<td style="width: 300px;">Nomor Pendaftaran</td>
 								<td style="width: 40px;">:</td>
-								<td>
-									<input type="text" name="no_pendaftaran" class="form-control" value="<?= $data->no_pendaftaran ?>"/>
-								</td>
+								<td><?= $data->no_pendaftaran ?></td>
 							</tr>
 
 							<tr>
@@ -65,7 +66,7 @@
 	<!-- Data Sekolah -->
 		<div class="row">
 			<div class="col-md-11 col-md-offset-1">
-				<h2 style="margin-bottom: 3%;">DATA SEKOLAH ASAL</h2>
+				<h2 style="margin-bottom: 5%;">DATA SEKOLAH ASAL</h2>
 				<table class="table table-striped">
 					<tbody>
 						<tr>
@@ -100,7 +101,7 @@
 	<!-- Data Nilai -->
 		<div class="row">
 			<div class="col-md-11 col-md-offset-1">
-				<h2 style="margin-bottom: 4%;">NILAI UJIAN</h2>
+				<h2 style="margin-bottom: 5%;">NILAI UJIAN</h2>
 				<table class="table table-striped">
 					<tbody>
 						<tr>
@@ -135,7 +136,7 @@
 	<!-- Biodata Orang Tua -->
 		<div class="row">
 			<div class="col-md-11 col-md-offset-1">
-				<h2 style="margin-bottom: 4%;"><strong>BIODATA ORANG TUA</strong></h2>
+				<h2 style="margin-bottom: 5%;"><strong>BIODATA ORANG TUA</strong></h2>
 				<table class="table table-striped">
 					<tbody>
 						<tr>
