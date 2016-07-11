@@ -46,7 +46,7 @@ class Admin extends CI_Controller{
 		if ($this->input->post('edit')){
 			$hasil = $this->input->post('hasil');
 
-			$this->siswa_model->update($nisn, $hasil);
+			$this->siswa_model->update($nisn, array('hasil' => $hasil));
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
 		}
 

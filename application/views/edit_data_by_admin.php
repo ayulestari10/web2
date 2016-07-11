@@ -46,8 +46,6 @@
 								</td>
 							</tr>
 
-
-
 							<tr>
 								<td>Foto</td>
 								<td></td>

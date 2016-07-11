@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/jquery.datepicker.css">
 
+	<link rel="stylesheet" type="text/css" href="assets/media/screen.css" />
+	<script type="text/javascript" src="assets/js/swfobject.js"></script>
+
 	<style type="text/css">
 		.big{
 			width: 1000px; height: 545px; margin-left: 5%;
@@ -143,7 +146,7 @@
 		</div>
 
 		<div class="jam">
-			JAM
+			<p id="devAnalogClock"><a href="http://www.xorbin.com/">Analog flash clock widget</a></p>
 		</div>
 	</div>
 	<!-- Ended Clock and Calendar-->	
@@ -169,6 +172,22 @@
 	    }
 	    return date;
 	}
+</script>
+
+<script type="text/javascript">
+	var flashvars = {
+		clockSkin: 'media/skins/skin001.png'
+	};
+	swfobject.embedSWF(
+		'media/devAnalogClock.swf', // path to the widget
+		'devAnalogClock',
+		'170', // width of the widget
+		'150', // height of the widget
+		'8',
+		'media/expressInstall.swf',
+		flashvars,
+		{scale: '500', wmode: 'transparent'}
+	);
 </script>
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
