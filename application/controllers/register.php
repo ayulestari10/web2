@@ -39,24 +39,24 @@ class Register extends CI_Controller{
 					);
 					// Masukkan data dan registrasi berhasil
 					$this->siswa_model->insert($data);
-					$this->session->set_userdata('msg', '<div class="alert alert-success" style="text-align:center;">Registrasi Berhasil</div>');
+					$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Registrasi Berhasil</div>');
 				} 
 				// Jika nisnnya sama registrasi gagal
 				else {
-					$this->session->set_userdata('msg', '<div class="alert alert-warning" style="text-align:center;">nisn yang anda masukkan telah terdaftar sebelumnya.</div>');
+					$this->session->set_flashdata('msg', '<div class="alert alert-warning" style="text-align:center;">nisn yang anda masukkan telah terdaftar sebelumnya.</div>');
 				}
 				// Kembali ke halaman registrasi
 				$this->index();
 			} 
 			// Jika password tidak sama dengan konfirmasi password, maka registrasi gagal
 			else {
-				$this->session->set_userdata('msg', '<div class="alert alert-danger" style="text-align:center;">Password harus sama dengan Konfirmasi Password</div>');
+				$this->session->set_flashdata('msg', '<div class="alert alert-danger" style="text-align:center;">Password harus sama dengan Konfirmasi Password</div>');
 				$this->index();
 			}
 		}
 		// Registrasi gagal karena tidak ada data yang dimasukkan
 		else {
-			$this->session->set_userdata('msg', '<div class="alert alert-danger" style="text-align:center;">Registrasi Gagal</div>');
+			$this->session->set_flashdata('msg', '<div class="alert alert-danger" style="text-align:center;">Registrasi Gagal</div>');
 			$this->index();
 		}
 	}

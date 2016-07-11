@@ -4,11 +4,11 @@
 <?php echo form_open_multipart('register/regist'); ?>
 	<div class="container">
 	<?php  
-		$msg = $this->session->userdata('msg');
+		$msg = $this->session->flashdata('msg');
 		if(isset($msg)){
 			echo $msg;
 		}
-		$this->session->unset_userdata('msg');
+		//$this->session->unset_flashdata('msg');
 	?>
 		<div class="row">
 			<div class="col-md-5 col-md-offset-3">

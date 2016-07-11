@@ -65,7 +65,7 @@
 						Home
 					</div>
 				</a><br>
-				<a href="<?= base_url('home/visi_misi') ?>">
+				<a href="<?= base_url('home/index#titlevm') ?>">
 					<div class="boxes">
 						Visi Misi				
 					</div>
@@ -79,12 +79,12 @@
 
 				<a href="#">
 					<div class="boxes">
-						Profil Guru
+						Sejarah
 					</div>
 				</a><br>
 
 
-				<a href="<?= base_url('register/regist') ?>">
+				<a href="<?= base_url('register') ?>">
 					<div class="boxes">
 						Pendaftaran
 					</div>
