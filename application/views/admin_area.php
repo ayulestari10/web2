@@ -23,7 +23,7 @@
 						<td><?= $data->nama_sekolah ?></td>
 						<td><?= $data->hasil ?></td>
 						<td>
-							<a href="<?= base_url('admin/edit_pass_siswa/'.$data->nisn) ?>"><input type="submit" value="Edit" class="btn btn-info" name="edit" /></a>
+							<a href="<?= base_url('admin/edit_siswa/'.$data->nisn) ?>"><input type="submit" value="Edit" class="btn btn-info" name="edit" /></a>
 							<a href="<?= base_url('admin/delete_siswa/'.$data->nisn) ?>"><input type="submit" value="Hapus" class="btn btn-danger" /></a>
 						</td>
 					</tr>

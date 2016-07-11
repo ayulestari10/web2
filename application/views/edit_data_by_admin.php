@@ -10,9 +10,9 @@
 		}
 
 		if (isset($nisn)) {
-		     echo form_open_multipart('admin/edit_pass_siswa/'.$nisn);
+		     echo form_open_multipart('admin/edit_siswa/'.$nisn);
 		} else {
-		     echo form_open_multipart('admin/edit_pass_siswa/');
+		     echo form_open_multipart('admin/edit_siswa/');
 		}
 	?>
 	<!-- Biodata Diri -->
@@ -46,13 +46,7 @@
 								</td>
 							</tr>
 
-							<tr>
-								<td>Password</td>
-								<td>:</td>
-								<td>
-									<input type="text" name="password" class="form-control" value="<?= $data->password ?>"/>
-								</td>
-							</tr>
+
 
 							<tr>
 								<td>Foto</td>
@@ -206,7 +200,8 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
+		</div>	
+	<!-- End of Biodata Orang Tua -->
 		<div class="row" style="margin-bottom: 3%; margin-top: 2%;">
 			<div class="col-md-2 col-md-offset-4">
 				<input type="submit" value="Edit" class="btn btn-success" name="edit"/>
@@ -216,5 +211,4 @@
 			</div>
 		</div>
 		<?php echo form_close(); ?>
-	<!-- End of Biodata Orang Tua -->
 </div>

@@ -1,5 +1,9 @@
 <style type="text/css">
-	.foto{width: 144px; height: 216px; border: 1px solid grey; margin-bottom: 4%;}
+	.foto{
+		width: 110px; height: 130px; border: 1px solid grey; margin-bottom: 4%; 
+		margin-left: 80%;
+	}
+	body{font-size: 12px;}
 </style>
 
 <div class="container">
@@ -10,7 +14,7 @@
 					<h1 style="text-align: center;">FORMULIR PENDAFTARAN</h1>
 					<h2 style="margin-bottom: 5%;">BIODATA CALON SISWA</h2>
 					<div class="foto">
-						<img src="<?= base_url('foto/'.$data->nisn.'.png') ?>" width="144" height="216" />
+						<img src="<?= base_url('foto/'.$data->nisn.'.png') ?>" width="110" height="130" />
 					</div>
 					<table class="table table-striped">
 						<tbody>
