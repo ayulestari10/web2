@@ -2,17 +2,34 @@
 <html>
 <head>
 	<title>Sejarah | SMK Muhammadiyah 2 Palembang</title>
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
-	<?php include "base_url('style.css')" ; ?>
-	<?php include "" ; ?>
+	<?php include "style.css" ; ?>
+	<?php include "script.js" ; ?>
 	<style type="text/css">
-		p{text-align: justify-all;}
+		p{text-align: justify;}
+		.bigsj{
+			width: 1080px; height: 820px; margin-left: 2%; 
+			background-image: url('<?= base_url("images/3.jpg") ?>'); background-size: cover;
+		}
+		.bigContentsj{
+			border-radius: 5%;
+			background-color:rgb(57,167,141);
+			margin-left: 30px; width: 840px; height: 630px;
+		}
+		.footersj{text-align: center; margin-top: 160px;}
+		.kalendersj{
+			height: 280px; width: 170px; margin-left: 870px;
+			margin-top: -440px;
+		}
+		.jamsj{
+			margin-top: -580px; margin-left: 900px; border-radius: 50%;
+		}
 	</style>
 </head>
 <body class="yui3-skin-sam" onload="init();">
 
-<div class="big">
+<div class="bigsj">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="header">
@@ -22,7 +39,7 @@
 	</div>
 
 	<div class="row">
-		<div class="bigContent">
+		<div class="bigContentsj">
 			<!-- Sidebar -->
 				<div class="sidebar">
 					<div class="col-md-2">
@@ -87,11 +104,11 @@
 	</div>
 
 	<!-- Clock & Calendar -->
-	<div id="clock" class="jam">
+	<div id="clock" class="jamsj">
 		
 	</div>
 
-	<div class="kalender">
+	<div class="kalendersj">
 		<div id="mycalendar">
 			
 		</div>
@@ -99,7 +116,7 @@
 	<!-- Ended Clock and Calendar-->	
 
 	<div class="row">
-		<div class="footer">
+		<div class="footersj">
 			<h6>Copyright &copy; 2016 SMK Muhammadiyah 2 Palembang</h6> 
 		</div>
 	</div>

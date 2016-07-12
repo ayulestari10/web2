@@ -2,10 +2,10 @@
 <html>
 <head>
 	<title>Penerimaan Siswa Baru | SMK Muhammadiyah 2 Palembang</title>
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
-	<?php include "base_url('style.css')" ; ?>
-	<?php include "" ; ?>
+	<?php include "style.css" ; ?>
+	<?php include "script.js" ; ?>
 </head>
 <body class="yui3-skin-sam" onload="init();">
 
@@ -84,7 +84,6 @@
 					</ol> 
 				</div>
 			</div>
-
 			<!-- End of content -->			
 		</div>
 	</div>

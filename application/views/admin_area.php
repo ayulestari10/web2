@@ -1,9 +1,11 @@
 <style type="text/css">
 	a{list-style: none;}
+	table{margin-top: 5%;}
 </style>
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
+			<h2 style="text-align: center;">Data Calon Siswa</h1>
 			<table class="table table-striped">
 				<thead style="text-align: center;">
 					<th>No.</th>
@@ -31,17 +33,5 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-md-1" style="margin-top: 4%; margin-bottom: 2%;">
-			<a href="<?= base_url('admin/add') ?>" class="btn btn-default">Tambah Admin</a>
-		</div>
-	    <div class="col-md-2" style="margin-bottom: 2%;">
-           <a href="<?= base_url('announcement/input') ?>" class="btn btn-default">Input Pengumuman</a>
-        </div>
-        <div class="col-md-2" style="margin-bottom: 2%;">
-           <a href="<?= base_url('announcement/') ?>" class="btn btn-default">List Pengumuman</a>
-        </div>
-        <div class="col-md-2" style="margin-bottom: 2%;">
-           <a href="<?= base_url('announcement/announce') ?>" class="btn btn-default">Lihat Pengumuman</a>
-        </div>
 	</div>
 </div>

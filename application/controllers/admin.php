@@ -48,6 +48,7 @@ class Admin extends CI_Controller{
 
 			$this->siswa_model->update($nisn, array('hasil' => $hasil));
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil diedit!</div>');
+			redirect('admin');
 		}
 
 		$data = array(

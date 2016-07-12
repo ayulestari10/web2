@@ -201,7 +201,7 @@
 			</div>
 		</div>	
 	<!-- End of Biodata Orang Tua -->
-		<div class="row" style="margin-bottom: 3%; margin-top: 2%;">
+		<div class="row" style="margin-bottom: 1%; margin-top: 2%;">
 			<div class="col-md-2 col-md-offset-4">
 				<input type="submit" value="Edit" class="btn btn-success" name="edit"/>
 			</div>

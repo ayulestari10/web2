@@ -244,7 +244,8 @@
 				</table>
 			</div>
 		</div>
-		<div class="row" style="margin-bottom: 3%;">
+	<!-- End of Biodata Orang Tua -->
+		<div class="row" style="margin-top: 1%;">
 			<div class="col-md-2 col-md-offset-2">
 				<input type="submit" value="Simpan" class="btn btn-success" name="input_data"/>
 			</div>
@@ -258,7 +259,6 @@
 				<a href="<?= base_url('siswa/formulir') ?>" class="btn btn-warning">Cetak Formulir</a>
 			</div>
 		</div>
-	<!-- End of Biodata Orang Tua -->
 	<?php echo form_close(); ?>
 </div>
 

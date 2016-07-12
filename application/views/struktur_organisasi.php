@@ -2,26 +2,57 @@
 <html>
 <head>
 	<title>Struktur Organisasi | SMK Muhammadiyah 2 Palembang</title>
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
-	<?php include "base_url('style.css')" ; ?>
-	<?php include "" ; ?>
+	<?php include "style.css" ; ?>
+	<?php include "script.js" ; ?>
+	<style type="text/css">
+	.bigso{
+		width: 1030px; height: 843px; margin-left: 5%; 
+		background-image: url('<?= base_url("images/3.jpg") ?>'); background-size: cover;
+	}
+	.bigContentso{
+		border-radius: 5%;
+		background-color: rgb(57,167,141);
+		width: 790px; height: 660px; margin-left: 2%; 
+	}
+	.headerso{
+		width: 1000px; height: 150px; margin-top: 5px; 
+		margin-left: 1%; border-radius: 5%; 
+		margin-bottom: -10px;
+	}
+	.headerso img{width: 100%; height: 100%; border-radius: 5%;}
+	.sidebarso{margin-top: 2%;}
+	.contentso{
+		margin-left: 150px; width: 600px; height: 560px; 
+	}
+	.contentso img{margin-top: 20px;}
+	.kalenderso{
+		height: 280px; width: 170px; margin-left: 800px;
+		margin-top: -460px;
+	}
+	.jamso{
+		margin-top: -600px; margin-left: 830px; border-radius: 50%;
+	}
+	.footerso{text-align: center; margin-top: 180px;}
+
+	</style>
 </head>
 <body class="yui3-skin-sam" onload="init();">
 
-<div class="big">
+<div class="bigso">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="header">
+			<div class="headerso">
 				<img src="<?= base_url('images/depan.jpg') ?>" style="height: 150px; margin-right: 15px;" />
 			</div>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="bigContent">
+		<div class="bigContentso">
 			<!-- Sidebar -->
-				<div class="sidebar">
+				<div class="sidebarso">
 					<div class="col-md-2">
 						<a href="<?= base_url('home') ?>">
 							<div class="boxes">
@@ -69,11 +100,9 @@
 			<!-- End of sidebar -->
 
 			<!-- Content -->
-			<div class="content">
+			<div class="contentso">
 				<h3>Struktur Organisasi<br>SMK Muhammadiyah 2 Palembang</h3>
-				<div class="isi">
-					<img src="<?= base_url('images/so.jpg') ?>" width="650" height="320" />
-				</div>
+				<img src="<?= base_url('images/so.jpg') ?>" width="600" height="560" style="border-radius: 10%;" />
 			</div>
 
 			<!-- End of content -->			
@@ -81,11 +110,11 @@
 	</div>
 
 	<!-- Clock & Calendar -->
-	<div id="clock" class="jam">
+	<div id="clock" class="jamso">
 		
 	</div>
 
-	<div class="kalender">
+	<div class="kalenderso">
 		<div id="mycalendar">
 			
 		</div>
@@ -93,7 +122,7 @@
 	<!-- Ended Clock and Calendar-->	
 
 	<div class="row">
-		<div class="footer">
+		<div class="footerso">
 			<h6>Copyright &copy; 2016 SMK Muhammadiyah 2 Palembang</h6> 
 		</div>
 	</div>

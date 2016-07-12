@@ -14,9 +14,7 @@
 							<tr>
 								<td style="width: 300px;">Nomor Pendaftaran</td>
 								<td style="width: 40px;">:</td>
-								<td>
-									<input type="text" name="no_pendaftaran" class="form-control" value="<?= $data->no_pendaftaran ?>"/>
-								</td>
+								<td><?= $data->no_pendaftaran ?></td>
 							</tr>
 
 							<tr>
@@ -178,10 +176,16 @@
 				</table>
 			</div>
 		</div>
-		<div class="row" style="margin-bottom: 3%;">
-			<div class="col-md-2 col-md-offset-5">
-				<a href="<?= base_url('siswa/input_data') ?>" class="btn btn-info">Kembali</a>
+	<!-- End of Biodata Orang Tua -->
+		<div class="row" style="margin-top: 2%;">
+			<div class="col-md-2 col-md-offset-3">
+				<a href="<?= base_url('siswa') ?>" class="btn btn-info">Input Data</a>
+			</div>
+			<div class="col-md-2">
+				<a href="<?= base_url('siswa/kartu_peserta') ?>" class="btn btn-danger">Cetak Kartu</a>
+			</div>
+			<div class="col-md-2">
+				<a href="<?= base_url('siswa/formulir') ?>" class="btn btn-warning">Cetak Formulir</a>
 			</div>
 		</div>
-	<!-- End of Biodata Orang Tua -->
 </div>

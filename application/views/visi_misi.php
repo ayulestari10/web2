@@ -2,14 +2,20 @@
 <html>
 <head>
 	<title>Visi Misi | SMK Muhammadiyah 2 Palembang</title>
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
-	<?php include "base_url('style.css')" ; ?>
-	<?php include "" ; ?>
+	<?php include "style.css" ; ?>
+	<?php include "script.js" ; ?>
+	<style type="text/css">
+		.bigvm{
+			width: 1100px; height: 550px; margin-left: 2%; 
+			background-image: url('<?= base_url("images/3.jpg") ?>'); background-size: cover;
+		}
+	</style>
 </head>
 <body class="yui3-skin-sam" onload="init();">
 
-<div class="big">
+<div class="bigvm">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="header">
