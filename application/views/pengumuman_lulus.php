@@ -8,11 +8,11 @@
 	<?php include "script.js" ; ?>
 	<style type="text/css">
 		.bigpg{
-			width: 1030px; min-height: 570px; margin-left: 5%; 
+			width: 1100px; min-height: 570px; margin-left: 2%; 
 			background-image: url('<?= base_url("images/3.jpg") ?>'); background-size: cover;
 		}
 		.headerpg{
-			width: 990px; height: 150px; margin-top: 5px; 
+			width: 1045px; height: 150px; margin-top: 5px; 
 			margin-left: 2%; border-radius: 5%; 
 			margin-bottom: -10px;
 		}
@@ -20,23 +20,24 @@
 		.bigContentpg{
 			border-radius: 5%;
 			background-color: rgb(57,167,141);
-			width: 810px; height: 380px; margin-left: 2%; 
+			width: 855px; height: 380px; margin-left: 30px; 
 		}
+		.boxes{background-color: rgb(102, 204, 0);}
 		.isipg{
 			margin-top: 10px; 
-			width: 630px; height: auto;	
+			width: 650px; height: auto;	
 		}
 		.pengumuman{
 			margin-left: 150px; width: 650px; height: 660px;
 		}
 		.pengumuman table{margin-right: 2%;}
-		.footerpg{margin-top: -43px; text-align: center; margin-bottom: -500px;}
+		.footerpg{margin-top: -43px; text-align: center;}
 		.kalenderpg{
-			height: 280px; width: 170px; margin-left: 830px;
-			margin-top: -240px;
+			height: 280px; width: 170px; margin-left: 870px;
+			margin-top: -250px;
 		}
 		.jampg{
-			margin-top: -380px; margin-left: 860px; border-radius: 50%;
+			margin-top: -380px; margin-left: 900px; border-radius: 50%;
 		}
 	</style>
 </head>

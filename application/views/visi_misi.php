@@ -11,6 +11,7 @@
 			width: 1100px; height: 550px; margin-left: 2%; 
 			background-image: url('<?= base_url("images/3.jpg") ?>'); background-size: cover;
 		}
+		.boxes{background-color: rgb(102, 204, 0);}
 	</style>
 </head>
 <body class="yui3-skin-sam" onload="init();">

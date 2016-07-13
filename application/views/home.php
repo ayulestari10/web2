@@ -6,6 +6,10 @@
 	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
 	<?php include "style.css" ; ?>
 	<?php include "script.js" ; ?>
+
+	<style type="text/css">
+		.boxes{background-color: rgb(102, 204, 0);}
+	</style>
 </head>
 <body class="yui3-skin-sam" onload="init();">
 

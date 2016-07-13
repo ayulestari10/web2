@@ -17,6 +17,7 @@
 			background-color:rgb(57,167,141);
 			margin-left: 30px; width: 840px; height: 630px;
 		}
+		.boxes{background-color: rgb(102, 204, 0);}
 		.footersj{text-align: center; margin-top: 160px;}
 		.kalendersj{
 			height: 280px; width: 170px; margin-left: 870px;

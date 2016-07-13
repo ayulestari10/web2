@@ -4,7 +4,7 @@
 		color: black;
 	}
 	.big{
-		width: 1100px; height: 550px; margin-left: 2%; 
+		width: 1060px; height: 550px; margin-left: 2%; 
 		background-image: url('<?= base_url("images/3.jpg") ?>'); background-size: cover;
 	}
 	.header{
@@ -21,9 +21,9 @@
 	}
 	.boxes{
 		width: 120px; height: 30px; margin-bottom: -4%;
-		border-radius: 10%; font-size: 14px;  text-align: center; color: white;
+		border-radius: 10%; font-size: 14px;  text-align: center; color: black;
 		font-weight: bolder;
-		background-color: rgb(69, 184, 172);
+		background-color: rgb(102, 204, 0);
 	}
 	.content{
 		margin-left: 130px; width: 650px; height: 320px;
