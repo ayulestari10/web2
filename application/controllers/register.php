@@ -39,6 +39,7 @@ class Register extends CI_Controller{
 					);
 					// Masukkan data dan registrasi berhasil
 					$this->siswa_model->insert($data);
+
 					$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Registrasi Berhasil</div>');
 				} 
 				// Jika nisnnya sama registrasi gagal

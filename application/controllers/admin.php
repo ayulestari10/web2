@@ -85,8 +85,8 @@ class Admin extends CI_Controller{
 			'title'		=> 'Edit Pengumuman | Penerimaan Siswa Baru',
 			'content'	=> 'edit_data_by_admin'
 		);
-		$this->session->set_flashdata('nisn', $nisn);
 		$this->load->view('includes/template', $data);
+
 	}
 
 	function delete_siswa(){

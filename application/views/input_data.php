@@ -101,16 +101,21 @@
           <option value="TKJ">TKJ</option>
           <option value="Multimedia">Multimedia</option> 
           <?php elseif($data->keahlian == "Pemasaran"): ?>
-          <option value="Akuntansi">Akuntansi</option>
           <option value="Pemasaran">Pemasaran</option>
+          <option value="Akuntansi">Akuntansi</option>
           <option value="TKJ">TKJ</option>
           <option value="Multimedia">Multimedia</option>
           <?php elseif($data->keahlian == "TKJ"): ?>
+          <option value="TKJ">TKJ</option>
+          <option value="Akuntansi">Akuntansi</option>
+          <option value="Pemasaran">Pemasaran</option>
+          <option value="Multimedia">Multimedia</option> 
+          <?php elseif($data->keahlian == "Multimedia"): ?>s
+          <option value="Multimedia">Multimedia</option>
           <option value="Akuntansi">Akuntansi</option>
           <option value="Pemasaran">Pemasaran</option>
           <option value="TKJ">TKJ</option>
-          <option value="Multimedia">Multimedia</option> 
-          <?php elseif($data->keahlian == "Multimedia"): ?>
+          <?php else: ?>
           <option value="Akuntansi">Akuntansi</option>
           <option value="Pemasaran">Pemasaran</option>
           <option value="TKJ">TKJ</option>
