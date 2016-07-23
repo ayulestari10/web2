@@ -7,7 +7,9 @@
 		<div class="biodata">
 			<div class="row">
 				<div class="col-md-11 col-md-offset-1">
-					<h1>Pendaftaran</h1>
+					<div style="margin-bottom: 4%;">
+						<a href="<?= base_url('admin') ?>" class="btn btn-info">Kembali</a>
+					</div>
 					<h2 style="margin-bottom: 4%;">BIODATA CALON SISWA</h2>
 					<table class="table table-striped">
 						<tbody>
@@ -27,7 +29,7 @@
 								<td>Foto</td>
 								<td></td>
 								<td>
-									<img src="<?= base_url('foto/'.$data->nisn.'.png') ?>">
+									<img src="<?= base_url('foto/'.$data->nisn.'.png') ?>" width="144" height="216">
 								</td>
 							</tr>
 
@@ -177,15 +179,4 @@
 			</div>
 		</div>
 	<!-- End of Biodata Orang Tua -->
-		<div class="row" style="margin-top: 2%;">
-			<div class="col-md-2 col-md-offset-3">
-				<a href="<?= base_url('siswa') ?>" class="btn btn-info">Edit Data</a>
-			</div>
-			<div class="col-md-2">
-				<a href="<?= base_url('siswa/kartu_peserta') ?>" class="btn btn-danger">Cetak Kartu</a>
-			</div>
-			<div class="col-md-2">
-				<a href="<?= base_url('siswa/formulir') ?>" class="btn btn-warning">Cetak Formulir</a>
-			</div>
-		</div>
 </div>

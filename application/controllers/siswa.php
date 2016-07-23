@@ -20,6 +20,12 @@ class Siswa extends CI_Controller{
 		$this->load->view('includes/template', $data);
 	}
 
+	function logout_siswa(){
+		$this->session->unset_userdata('no_pendaftaran');
+		$this->session->unset_userdata('nisn');
+		redirect('login/siswa');
+	}
+
 	function input_data(){
 
 		if($this->input->post('input_data')){
@@ -52,7 +58,7 @@ class Siswa extends CI_Controller{
 			$this->siswa_model->do_upload($nisn);
 
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data berhasil disimpan!</div>');
-			redirect('siswa');
+			redirect('siswa/periksa');
 			exit;
 		}
 			
@@ -84,7 +90,7 @@ class Siswa extends CI_Controller{
 	
 	public function kartu_peserta() {
         $data = array(
-        	'data' 		=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
+        	'data' 	=> $this->siswa_model->get_data_bynisn($this->session->userdata('nisn')),
         	'nisn'	=> $this->siswa_model->get_id($this->session->userdata('nisn'))
         );
         //load the view and saved it into $html variable

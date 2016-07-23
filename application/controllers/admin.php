@@ -13,7 +13,6 @@ class Admin extends CI_Controller{
 		}
 	}
 
-	// Method ini digunakan untuk masuk ke halaman admin yang berisi daftar siswa dan beberapa menu (tambah admin, input pengumuman, dan lihat pengumuman).
 	function index(){
 		$data = array(
 			'nisn'		=> $this->uri->segment(3),
@@ -24,7 +23,22 @@ class Admin extends CI_Controller{
 		$this->load->view('includes/template', $data);
 	}
 
-	//Method ini digunakan untuk menampilkan pengumuman hasil seleksi.
+	function logout_admin(){
+		$this->session->unset_userdata('username');
+		redirect('login/admin');
+	}
+
+	function detail(){
+		$nisn = $this->uri->segment(3);
+
+		$data = array(
+			'data' 		=> $this->siswa_model->get_data_bynisn($nisn),
+			'title'		=> 'Edit Pengumuman | Penerimaan Siswa Baru',
+			'content'	=> 'detail'
+		);
+		$this->load->view('includes/template', $data);
+	}
+
 	function pengumuman_lulus(){
 		$data = array(
 			'nisn'		=> $this->uri->segment(3),
@@ -33,9 +47,24 @@ class Admin extends CI_Controller{
 			'content'	=> 'pengumuman_lulus'
 		);
 		$this->load->view('includes/template', $data);
-	}						
+	}
 
-	// Method ini digunakan untuk mengedit password siswa dan melihat data siswa.
+	function cetak_pengumuman(){
+		$data = array(
+			'dt' 	=> $this->siswa_model->get_all()
+		);
+
+        $html = $this->load->view('cetak_pengumuman', $data, true);
+ 
+        $pdfFilePath = "Pengumuman Hasil Seleksi.pdf";
+ 
+        $this->load->library('m_pdf');
+ 
+        $this->m_pdf->pdf->WriteHTML($html);
+ 
+        $this->m_pdf->pdf->Output($pdfFilePath, "D");  
+	}				
+
 	function edit_siswa(){
 		$nisn = $this->uri->segment(3);
 
@@ -60,7 +89,6 @@ class Admin extends CI_Controller{
 		$this->load->view('includes/template', $data);
 	}
 
-	// Method ini digunakan untuk menghapus siswa.
 	function delete_siswa(){
 		$nisn = $this->uri->segment(3);
 		if(isset($nisn)){
